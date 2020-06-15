@@ -8,6 +8,7 @@ Use AI and machine learning to make a virtual representation of a Formula SAE ca
 The chosen race track is ECPS, used for the endurance event of the 2019 Brazilian FSAE competition.
 
 
+
 The inspiration for this project is the play list below:
 https://www.youtube.com/watch?v=NZlIYr1slAk&list=PLPWikzi38KIwwQdolewJb_Ei1NAb4BSFg
 
