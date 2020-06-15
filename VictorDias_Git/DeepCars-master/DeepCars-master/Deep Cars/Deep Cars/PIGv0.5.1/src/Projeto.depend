@@ -6020,3 +6020,428 @@
 	<math.h>
 	<time.h>
 
+1564076200 source:c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\src\main.cpp
+	"PIG.h"
+	"redeNeural.c"
+
+1518449564 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\pig.h
+	"Bibliotecas_Basicas.h"
+	"SDL_Pack.h"
+	"PIG_Pack.h"
+	"PIG_Variaveis.h"
+	"Victor.h"
+	"PIG_Jogo.h"
+	"PIG_Geometricos.h"
+	"PIG_Fontes.h"
+	"PIG_Objetos.h"
+	"PIG_Timers.h"
+	"PIG_Animations.h"
+	"Codigos.h"
+
+1483661952 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\bibliotecas_basicas.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<time.h>
+
+1483662068 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl_pack.h
+	"SDL.h"
+	"SDL_ttf.h"
+	"SDL_image.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_config.h
+	"SDL_platform.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\begin_code.h
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\close_code.h
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<intrin.h>
+	<libkern/OSAtomic.h>
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<mmintrin.h>
+	<mm3dnow.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_pixels.h
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1384894806 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1499834968 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376272758 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376152944 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl\sdl_ttf.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376138316 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\sdl_image\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1483662094 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\pig_pack.h
+	"Tipos_PIG.h"
+	"CPoolNumeros.h"
+	"CAssetLoader.h"
+	"CMapaCaracteres.h"
+	"CGerenciadorObjetos.h"
+	"CGerenciadorTimers.h"
+	"CGerenciadorParticulas.h"
+	"CGerenciadorAnimacoes.h"
+	"CMouse.h"
+	"CJogo.h"
+
+1563048724 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\tipos_pig.h
+
+1422933084 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\cpoolnumeros.h
+
+1476221024 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\cassetloader.h
+
+1498605228 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\cmapacaracteres.h
+	"COffscreenRenderer.h"
+
+1476207638 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\coffscreenrenderer.h
+	"CPilhaCoordenada.h"
+
+1453511118 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\cpilhacoordenada.h
+
+1563076930 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\cgerenciadorobjetos.h
+	"CObjeto.h"
+
+1563076948 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\cobjeto.h
+
+1472003240 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\cgerenciadortimers.h
+	"CTimer.h"
+
+1471468256 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\ctimer.h
+
+1478218772 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\cgerenciadorparticulas.h
+	"CGeradorParticulas.h"
+
+1478218670 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\cgeradorparticulas.h
+	"CParticula.h"
+
+1472169826 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\cparticula.h
+
+1478400858 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\cgerenciadoranimacoes.h
+	"CAnimacao.h"
+
+1476221284 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\canimacao.h
+
+1472266476 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\cmouse.h
+
+1515092141 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\cjogo.h
+
+1515091853 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\pig_variaveis.h
+
+1515090893 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\victor.h
+
+1515091940 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\pig_jogo.h
+
+1506387831 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\pig_geometricos.h
+
+1483673816 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\pig_fontes.h
+
+1563431862 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\pig_objetos.h
+
+1498150162 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\pig_timers.h
+
+1518450224 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\pig_animations.h
+
+1483680436 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\include\codigos.h
+
+1563168698 c:\users\patrick\documents\github\ai_practice\victordias_git\deepcars-master\deepcars-master\deep cars\deep cars\pigv0.5.1\src\redeneural.c
+	<gsl/gsl_rng.h>
+	<math.h>
+	<time.h>
+
