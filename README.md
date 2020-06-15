@@ -5,7 +5,7 @@ Partner: 	Maria Claudia Regio.
 
 Project description:
 Use AI and machine learning to make a virtual representation of a Formula SAE car race one lap around a race track.
-The chosen race track is ECPS, used for the endurance event of the 2019 Brazilian FSAE competition.
+The chosen race track is ECPA (Piracicaba-SP-BR), used for the endurance event of the 2019 Brazilian FSAE competition.
 
 
 
