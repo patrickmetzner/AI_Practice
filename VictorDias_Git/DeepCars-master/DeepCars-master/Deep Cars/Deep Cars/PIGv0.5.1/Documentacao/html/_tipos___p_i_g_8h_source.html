@@ -1,0 +1,468 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>PIG 0.5.1: Código-Fonte de Tipos_PIG.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">PIG 0.5.1
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;Arquivos</span></a></li>
+      <li><a href="globals.html"><span>Membros&#160;dos&#160;Arquivos</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_tipos___p_i_g_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Tipos_PIG.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_tipos___p_i_g_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/********************************</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">Tipos de dados mais utilizados pela PIG</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">versão da PIG compatível: 0.5.1</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">********************************/</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/********************************</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">Principais definições utilizadas pela PIG</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">********************************/</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a1e9b38d998b31c626320cd5e62e68fd2">   11</a></span>&#160;<span class="preprocessor">#define ALT_TELA                600</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#af23e019e19169e2e6a32ab1ca9739119">   12</a></span>&#160;<span class="preprocessor">#define LARG_TELA               800</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#aab14a4bda69be7175e78587aff28f975">   13</a></span>&#160;<span class="preprocessor">#define MAX_CURSORES            20</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#abb1c475f1c8eca35143d1884a37a9f81">   14</a></span>&#160;<span class="preprocessor">#define MAX_FONTES              100</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a90d5c0f5f78bb416e01152ec3a30d6ff">   15</a></span>&#160;<span class="preprocessor">#define PRIMEIRO_CAR            26</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ad1199cf668ff1e6f2e621050dbab2f84">   16</a></span>&#160;<span class="preprocessor">#define ULTIMO_CAR              256</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a3ff3f764ee3ea668c0a98cee0337884c">   17</a></span>&#160;<span class="preprocessor">#define NOME_ARQ_TEMP           &quot;fontess.bmp&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a07529ddf3c849bfd57f90ff7305d4f67">   19</a></span>&#160;<span class="preprocessor">#define MAX_SLOTS_AL            4000</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a963b38db0730be0447efb92f7e5485fb">   21</a></span>&#160;<span class="preprocessor">#define MAX_ANIMACOES           1000</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a5b4055201d2d8170e179b1ceaa438b9c">   22</a></span>&#160;<span class="preprocessor">#define MAX_FRAMES              2000</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ae3c74a457f6e59d3862456ecd2c08a5e">   23</a></span>&#160;<span class="preprocessor">#define MAX_FRAMES_MODO         100</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a6a0014d6edce49b45571bfa60d329181">   24</a></span>&#160;<span class="preprocessor">#define MAX_MODOS               50</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a2c5a5921d489db5c9d15ae0c4aaf5164">   26</a></span>&#160;<span class="preprocessor">#define MAX_OBJETOS             2000</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a00780ac552b3571b5c0e9e08cf409bd5">   27</a></span>&#160;<span class="preprocessor">#define MAX_ATRIBUTOS_OBJETO    100</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a79fd3eac646964332ed33ec7dd40f208">   29</a></span>&#160;<span class="preprocessor">#define MAX_TIMERS              5000</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a5e5ef3617dca695220431355d6df1291">   31</a></span>&#160;<span class="preprocessor">#define MAX_GERADORPARTICULAS   100</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#af55a9a794a54904e50416d819202d753">   32</a></span>&#160;<span class="preprocessor">#define MAX_PARTICULAS          1000</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a128ff2a18379ccb96bb12000f70f59ae">   34</a></span>&#160;<span class="preprocessor">#define SHARE_BITMAP</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">/********************************</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">O tipo PIG_Cor é um struct formado por 4 campos: r,g,b,a correspondendo aos valores de vermelho, verde, azul e alfa (transparência) do pixel</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">********************************/</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a8b6f3eaa015f1c4bcf5a7cb192f88eac">   40</a></span>&#160;<span class="preprocessor">#define PIG_Cor         SDL_Color</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#aacb0f3dcd8f3a9340af0494c8a16bb1d">   41</a></span>&#160;<span class="preprocessor">#define BRANCO          ((PIG_Cor){255,255,255,255})</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a6483e93cde678c0a4b0c8059337d8e42">   42</a></span>&#160;<span class="preprocessor">#define PRETO           ((PIG_Cor){0,0,0,255})</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a417a0e2cb13684627c838b16cc69651a">   43</a></span>&#160;<span class="preprocessor">#define AZUL            ((PIG_Cor){0,0,255,255})</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a9dc6985f34e40c197dc62918a96e3fa7">   44</a></span>&#160;<span class="preprocessor">#define VERMELHO        ((PIG_Cor){255,0,0,255})</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a4bb7219220248476df702f5d4fbbb3ab">   45</a></span>&#160;<span class="preprocessor">#define VERDE           ((PIG_Cor){0,255,0,255})</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#abf22a4fcddc9121a35158f974493f881">   46</a></span>&#160;<span class="preprocessor">#define AMARELO         ((PIG_Cor){255,255,0,255})</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a40aa83ddba5d06d1eeb7155b1d2d4753">   47</a></span>&#160;<span class="preprocessor">#define ROXO            ((PIG_Cor){255,0,255,255})</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#aec6988bc93e8b5348e204e5818b2f918">   48</a></span>&#160;<span class="preprocessor">#define LARANJA         ((PIG_Cor){255,128,0,255})</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#afb08f6944198cfec52b7959a0d32d372">   49</a></span>&#160;<span class="preprocessor">#define CIANO           ((PIG_Cor){0,255,255,255})</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a6e9f9303862d91e006983782beeddf70">   50</a></span>&#160;<span class="preprocessor">#define CINZA           ((PIG_Cor){128,128,128,255})</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a634b05725a0522f175679a17afe12d01">   51</a></span>&#160;<span class="preprocessor">#define CORESIGUAIS(x,y)(((PIG_Cor)x).r==((PIG_Cor)y).r &amp;&amp; ((PIG_Cor)x).g==((PIG_Cor)y).g &amp;&amp; ((PIG_Cor)x).b==((PIG_Cor)y).b)</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">/********************************</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">O PIG_TipoEvento é uma enumeração que contém os seguintes possíveis valores:</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">EVENTO_NULO: indica que não houve evento desde a última chamada da função Pega_Evento()</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">EVENTO_GERAL: (não implementado)</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">EVENTO_JANELA: indica algum possível evento relacionado à janela de jogo (redimensionamento, movimento, perda ou ganho de foco etc)</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">EVENTO_TECLADO: indica algum possível evento relacionado ao teclado do computador (tecla pressionada ou liberada, texto digitado ou editado etc)</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">EVENTO_MOUSE: indica algum possível evento relacionado ao mouse do compuatdor (botão pressionado ou liberado, movimentação, uso da rodinha etc)</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">EVENTO_AUDIO: (não implementado)</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">EVENTO_CONTROLADOR: (não implementado)</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">EVENTO_USUARIO: (não implementado)</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">********************************/</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133e">   65</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code" href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133e">PIG_TipoEvento</a>{<a class="code" href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133ea538bda66ed52f22ed12785ddabcc66e8">EVENTO_NULO</a>,</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133eab5eb4b80cc2add1e032e342c752c2681">   66</a></span>&#160;                            <a class="code" href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133eab5eb4b80cc2add1e032e342c752c2681">EVENTO_GERAL</a>,</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133ea7301f4d5fcee47f6fee6165b7c7e5cee">   67</a></span>&#160;                            <a class="code" href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133ea7301f4d5fcee47f6fee6165b7c7e5cee">EVENTO_JANELA</a>,</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133ea33e8c80d7f8cc910775acf37b89f6067">   68</a></span>&#160;                            <a class="code" href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133ea33e8c80d7f8cc910775acf37b89f6067">EVENTO_TECLADO</a>,</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133ead0e0584d322ba9ce16c72108b36fa16b">   69</a></span>&#160;                            <a class="code" href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133ead0e0584d322ba9ce16c72108b36fa16b">EVENTO_MOUSE</a>,</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133eae0053a9ad8d900b581e215091a07ad70">   70</a></span>&#160;                            <a class="code" href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133eae0053a9ad8d900b581e215091a07ad70">EVENTO_AUDIO</a>,</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133ea933d58ee9c29c4059a9e3a5dff85ab08">   71</a></span>&#160;                            <a class="code" href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133ea933d58ee9c29c4059a9e3a5dff85ab08">EVENTO_CONTROLADOR</a>,</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133ea521fd09e650c24c7abcf3f174a34c053">   72</a></span>&#160;                            <a class="code" href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133ea521fd09e650c24c7abcf3f174a34c053">EVENTO_USUARIO</a>}</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <a class="code" href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133e">PIG_TipoEvento</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">/********************************</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">O InfoEventoMouse é um struct contendo informações específicas sobre o evento de mouse:</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">acao: código que representa o evento específico (os possíveis valores podem ser vistos abaixo do struct)</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">posX: a posição no eixo X do ponteiro do mouse no momento de ocorrência do evento</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">posY: a posição no eixo Y do ponteiro do mouse no momento de ocorrência do evento</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">botao: indica qual dos possíveis três botões foi pressionado ou liberado</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">relX: indica o deslocamento no eixo X quando há uma movimentação de mouse; adicionalmente, representa o deslocamento da rodinha no eixo X (não usado)</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">relX: indica o deslocamento no eixo Y quando há uma movimentação de mouse; adicionalmente, representa o deslocamento da rodinha no eixo Y</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">********************************/</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="struct_info_evento_mouse.html">   84</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_info_evento_mouse.html">InfoEventoMouse</a>{</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="struct_info_evento_mouse.html#ad7f671871e99cdf07f97329a5c3ac3d5">   85</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_info_evento_mouse.html#ad7f671871e99cdf07f97329a5c3ac3d5">acao</a>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="struct_info_evento_mouse.html#af33a4a28bb319e7665bc62c9e8cbdec6">   86</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_info_evento_mouse.html#a33b5db5f4c31765c0530754fed4c0303">posX</a>,<a class="code" href="struct_info_evento_mouse.html#af33a4a28bb319e7665bc62c9e8cbdec6">posY</a>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="struct_info_evento_mouse.html#a1172176a50f9cbb386c68d95f02f4c4d">   87</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_info_evento_mouse.html#a1172176a50f9cbb386c68d95f02f4c4d">botao</a>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="struct_info_evento_mouse.html#abacbbe2dc55ab39769344176a925ea27">   88</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_info_evento_mouse.html#a3853c91166bcea99068ca4544b6001d6">relX</a>,<a class="code" href="struct_info_evento_mouse.html#abacbbe2dc55ab39769344176a925ea27">relY</a>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}<a class="code" href="_tipos___p_i_g_8h.html#ae4776e7ba9ae98fb14a451daa8846806">InfoEventoMouse</a>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a3ea5e91a82500ae9a5c6de8526fe6209">   90</a></span>&#160;<span class="preprocessor">#define MOUSE_PRESSIONADO       SDL_MOUSEBUTTONDOWN</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a47099c035e1d56200675d4131640fc89">   91</a></span>&#160;<span class="preprocessor">#define MOUSE_LIBERADO          SDL_MOUSEBUTTONUP</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ad125abaa79eb5f507def3b37fd56e835">   92</a></span>&#160;<span class="preprocessor">#define MOUSE_MOVIDO            SDL_MOUSEMOTION</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a4ac8b346b1049c0581c734b5f70effa5">   93</a></span>&#160;<span class="preprocessor">#define MOUSE_RODINHA           SDL_MOUSEWHEEL</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a559cdead6c492628baa41cdf5bada663">   94</a></span>&#160;<span class="preprocessor">#define MOUSE_DIREITO           SDL_BUTTON_RIGHT</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a20f1bcbe2872facc1f5991954feee568">   95</a></span>&#160;<span class="preprocessor">#define MOUSE_ESQUERDO          SDL_BUTTON_LEFT</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ad8fb12a7ac845dcb831327064edc8332">   96</a></span>&#160;<span class="preprocessor">#define MOUSE_CENTRAL           SDL_BUTTON_MIDDLE</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">/********************************</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">O InfoEventoJanela é um struct contendo informações específicas sobre o evento de janela:</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">acao: código que representa o evento específico (os possíveis valores podem ser vistos abaixo do struct)</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">dado1,dado2: indicam em conjunto a informação específica do evento, podendo representar o ponto (X,Y), em relação ao monitor,</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">para o qual a janela foi movida ou o novo tamanho da janela após um alteração de dimensões na mesma</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">********************************/</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="struct_info_evento_janela.html">  104</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_info_evento_janela.html">InfoEventoJanela</a>{</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="struct_info_evento_janela.html#add917a545c6352dccd69e6988caff486">  105</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_info_evento_janela.html#add917a545c6352dccd69e6988caff486">acao</a>;</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="struct_info_evento_janela.html#a2357b0ff09d5e54b73f56fde2c624cbd">  106</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_info_evento_janela.html#a8dc386581586a2cb197b8351129b8440">dado1</a>,<a class="code" href="struct_info_evento_janela.html#a2357b0ff09d5e54b73f56fde2c624cbd">dado2</a>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}<a class="code" href="_tipos___p_i_g_8h.html#a1d15514e3f52654fcee15c36bffdabdd">InfoEventoJanela</a>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a58532b0c46f6e312d7197cc39347247d">  108</a></span>&#160;<span class="preprocessor">#define JANELA_EXIBIDA          SDL_WINDOWEVENT_SHOWN</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a4433d386efdf9a93e098339778fcca48">  109</a></span>&#160;<span class="preprocessor">#define JANELA_OCULTA           SDL_WINDOWEVENT_HIDDEN</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a0b5bb4d9296e386f970cd85305ff12a8">  110</a></span>&#160;<span class="preprocessor">#define JANELA_EXPOSTA          SDL_WINDOWEVENT_EXPOSED</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#aaef0707f208e82b5c17189b5a090b86b">  111</a></span>&#160;<span class="preprocessor">#define JANELA_MOVIDA           SDL_WINDOWEVENT_MOVED</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#aa891486ecf4dae319a02ff46cd994d39">  112</a></span>&#160;<span class="preprocessor">#define JANELA_REDIMENSIONADA   SDL_WINDOWEVENT_RESIZED</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ae1cf91bd316ef9bbbfe3145ba11a95dd">  113</a></span>&#160;<span class="preprocessor">#define JANELA_ALTERADA         SDL_WINDOWEVENT_SIZE_CHANGED</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a97cb1c91cbfd7645c38920e732f62f54">  114</a></span>&#160;<span class="preprocessor">#define JANELA_MINIMIZADA       SDL_WINDOWEVENT_MINIMIZED</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a638d038a0a8b117ec53dd0d3d08c5567">  115</a></span>&#160;<span class="preprocessor">#define JANELA_MAXIMIZADA       SDL_WINDOWEVENT_MAXIMIZED</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ac3e35c7dfebdab1f2ec6a27cce7b0917">  116</a></span>&#160;<span class="preprocessor">#define JANELA_RESTAURADA       SDL_WINDOWEVENT_RESTORED</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a33801daa166775719ff2cd60a93114ef">  117</a></span>&#160;<span class="preprocessor">#define JANELA_MOUSEDENTRO      SDL_WINDOWEVENT_ENTER</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#aa18b1f3f3fc21fde98cfe9f3f3a323ef">  118</a></span>&#160;<span class="preprocessor">#define JANELA_MOUSEFORA        SDL_WINDOWEVENT_LEAVE</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a0b89e757b505cabcf333c9510e41a799">  119</a></span>&#160;<span class="preprocessor">#define JANELA_GANHOFOCO        SDL_WINDOWEVENT_FOCUS_GAINED</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a2e617008622565c6d0436dfaef9ae137">  120</a></span>&#160;<span class="preprocessor">#define JANELA_PERDAFOCO        SDL_WINDOWEVENT_FOCUS_LOST</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a179ca9079c1dc85da48cffcce4f5316a">  121</a></span>&#160;<span class="preprocessor">#define JANELA_FECHADA          SDL_WINDOWEVENT_CLOSE</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">/********************************</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">O InfoEventoTeclado é um struct contendo informações específicas sobre o evento de teclado:</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">acao: código que representa o evento específico (os possíveis valores podem ser vistos abaixo do struct)</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">tecla: código que representa a tecla pressionada ou liberada. Os possíveis valores pdoem ser vistos nofinal deste arquivo.</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">repeticao: indica se está havendo repetição no acionamento desta tecla ou não</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">texto: indica o que está sendo inserido</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment">inicio: indica a posição virtual da parte selecionada do texto a ser editado</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment">tamanhoSelecao: indica o tamanho (quantidade de caracteres) da seleção do texto a ser editado</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment">********************************/</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="struct_info_evento_teclado.html">  132</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_info_evento_teclado.html">InfoEventoTeclado</a>{</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="struct_info_evento_teclado.html#a296aa09c2b2b164ca1e58aff7394d7f3">  133</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_info_evento_teclado.html#a296aa09c2b2b164ca1e58aff7394d7f3">acao</a>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="struct_info_evento_teclado.html#a5cfdfb147bfd2edfcdafd26e66f4d587">  134</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_info_evento_teclado.html#a5cfdfb147bfd2edfcdafd26e66f4d587">tecla</a>;</div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="struct_info_evento_teclado.html#a2ebbbeef2bac0adeef90b29b6274720f">  135</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_info_evento_teclado.html#a2ebbbeef2bac0adeef90b29b6274720f">repeticao</a>;</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="struct_info_evento_teclado.html#a8e8399bcf714c54d73e9b4a9375d05e0">  136</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="struct_info_evento_teclado.html#a8e8399bcf714c54d73e9b4a9375d05e0">texto</a>[32];</div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="struct_info_evento_teclado.html#a1fa842c7b2fefe07ddb2f218899090d7">  137</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_info_evento_teclado.html#af4ba03b104f866071c02a882400c6121">inicio</a>,<a class="code" href="struct_info_evento_teclado.html#a1fa842c7b2fefe07ddb2f218899090d7">tamanhoSelecao</a>;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;}<a class="code" href="_tipos___p_i_g_8h.html#afa84a02f2ba9d3a9b667720e117912fe">InfoEventoTeclado</a>;</div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#acb63df49b33b4e85179faad5ae64966b">  139</a></span>&#160;<span class="preprocessor">#define TECLA_PRESSIONADA       SDL_KEYDOWN</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a7466e3b95e7e664705d648065cad53d2">  140</a></span>&#160;<span class="preprocessor">#define TECLA_LIBERADA          SDL_KEYUP</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a0415044bf198be58b5edc4536a39d7da">  141</a></span>&#160;<span class="preprocessor">#define TECLA_EDICAO            SDL_TEXTEDITING</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a450ce481a34e78e5d320172753b61ca3">  142</a></span>&#160;<span class="preprocessor">#define TECLA_INPUT             SDL_TEXTINPUT</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="struct_p_i_g___evento.html">  144</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_p_i_g___evento.html">PIG_Evento</a>{</div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="struct_p_i_g___evento.html#a0dd3cee5c6ca607a2beb6ff6fff44e81">  145</a></span>&#160;    <a class="code" href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133e">PIG_TipoEvento</a> <a class="code" href="struct_p_i_g___evento.html#a0dd3cee5c6ca607a2beb6ff6fff44e81">tipoEvento</a>;</div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="struct_p_i_g___evento.html#a57a0fd3f7878055ccbdc14e6092e1246">  146</a></span>&#160;    <a class="code" href="struct_info_evento_mouse.html">InfoEventoMouse</a> <a class="code" href="struct_p_i_g___evento.html#a57a0fd3f7878055ccbdc14e6092e1246">mouse</a>;</div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="struct_p_i_g___evento.html#a608277842dd469ad6e578b3a3515e00a">  147</a></span>&#160;    <a class="code" href="struct_info_evento_janela.html">InfoEventoJanela</a> <a class="code" href="struct_p_i_g___evento.html#a608277842dd469ad6e578b3a3515e00a">janela</a>;</div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="struct_p_i_g___evento.html#a7657689fcc8188f0cf4c9f8e9c89f7d2">  148</a></span>&#160;    <a class="code" href="struct_info_evento_teclado.html">InfoEventoTeclado</a> <a class="code" href="struct_p_i_g___evento.html#a7657689fcc8188f0cf4c9f8e9c89f7d2">teclado</a>;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;} <a class="code" href="_tipos___p_i_g_8h.html#a2cd08de7ac2b05a378a2342aad1909df">PIG_Evento</a>;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a7dbb446e84625585d0dd316c31769e3e">  152</a></span>&#160;<span class="preprocessor">#define PIG_Teclado             const Uint8*</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="comment">//Seção de flips de objetos</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a6a7bbf7f383c0736345b7b1103834f33">  156</a></span>&#160;<span class="preprocessor">#define PIG_Flip                SDL_RendererFlip</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a4aed97966bb1ec335028caa24bf7d4cc">  157</a></span>&#160;<span class="preprocessor">#define FLIP_NENHUM             SDL_FLIP_NONE</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a171b02288e1a014931d0fb89bb66083a">  158</a></span>&#160;<span class="preprocessor">#define FLIP_HORIZONTAL         SDL_FLIP_HORIZONTAL</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ad131a1eae643167036846e8f258697cd">  159</a></span>&#160;<span class="preprocessor">#define FLIP_VERTICAL           SDL_FLIP_VERTICAL</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a5583006c0e7ff072f0a1f95e45c6863d">  160</a></span>&#160;<span class="preprocessor">#define FLIP_HORIZ_VERT         FLIP_HORIZONTAL|FLIP_VERTICAL</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">//Seção de estilos</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#adf9d904a68a18394d03e377b622e3ebd">  164</a></span>&#160;<span class="preprocessor">#define PIG_Estilo              int</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ab6ea9f26f3021e389006ca7443e04623">  165</a></span>&#160;<span class="preprocessor">#define ESTILO_NORMAL           TTF_STYLE_NORMAL</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a198481d091837f3304ff3204cd8b44c1">  166</a></span>&#160;<span class="preprocessor">#define ESTILO_NEGRITO          TTF_STYLE_BOLD</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ac325dd168487cf325fc909965c365cef">  167</a></span>&#160;<span class="preprocessor">#define ESTILO_ITALICO          TTF_STYLE_ITALIC</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#aec49c9cd8a33e213e1b7e0e28fe16f38">  168</a></span>&#160;<span class="preprocessor">#define ESTILO_SUBLINHADO       TTF_STYLE_UNDERLINE</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a55988b191f39d49b3fb4671330b97ca9">  169</a></span>&#160;<span class="preprocessor">#define ESTILO_CORTADO          TTF_STYLE_STRIKETHROUGH</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment">//Seção de teclas</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
+<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ae7a4125324daf735ba9133e80a41eab7">  173</a></span>&#160;<span class="preprocessor">#define TECLA_UNKNOWN           0</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a200783a193e53d2a517683848f5af370">  175</a></span>&#160;<span class="preprocessor">#define TECLA_ENTER             SDL_SCANCODE_RETURN</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#adab935d532e118765ecb95b5a9ef2926">  176</a></span>&#160;<span class="preprocessor">#define TECLA_ESC               SDL_SCANCODE_ESCAPE</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ad88a0c7aa0936dc21d82268cb87036ab">  177</a></span>&#160;<span class="preprocessor">#define TECLA_BACKSPACE         SDL_SCANCODE_BACKSPACE</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a9c66c89342a5a641426729d7ce4c40c1">  178</a></span>&#160;<span class="preprocessor">#define TECLA_TAB               SDL_SCANCODE_TAB</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ac6440aefea47d767e36a06ecbb8d6372">  179</a></span>&#160;<span class="preprocessor">#define TECLA_BARRAESPACO       SDL_SCANCODE_SPACE</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ab69fed4db809f1495e8733e28b55df78">  180</a></span>&#160;<span class="preprocessor">#define TECLA_EXCLAMACAO        SDL_SCANCODE_EXCLAIM</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#af8fa0c17f8a8665a81a44ac929759a12">  181</a></span>&#160;<span class="preprocessor">#define TECLA_ASPASDUPLAS       SDL_SCANCODE_QUOTEDBL</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a66c33102c56bbcf37a3fea86c0033555">  182</a></span>&#160;<span class="preprocessor">#define TECLA_HASH              SDL_SCANCODE_HASH</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a0827dff4c16ced9357053746440d1668">  183</a></span>&#160;<span class="preprocessor">#define TECLA_PORCENTO          SDL_SCANCODE_PERCENT</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a947c7617319a57b60798d57dd7dbab2b">  184</a></span>&#160;<span class="preprocessor">#define TECLA_CIFRAO            SDL_SCANCODE_DOLLAR</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a2e6ef103593d45861ccc75d22476fab2">  185</a></span>&#160;<span class="preprocessor">#define TECLA_ECOMERCIAL        SDL_SCANCODE_AMPERSAND</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a0358d3b6b44676c4266132db5d0722c9">  186</a></span>&#160;<span class="preprocessor">#define TECLA_ASPASIMPLES       SDL_SCANCODE_QUOTE</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a840d4243fe56dcd608c7d1d757c58aa4">  187</a></span>&#160;<span class="preprocessor">#define TECLA_ABREPARENTESES    SDL_SCANCODE_LEFTPAREN</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a6de372122c2f22381bd0768ec68cbc2c">  188</a></span>&#160;<span class="preprocessor">#define TECLA_FECHAPARENTESES   SDL_SCANCODE_RIGHTPAREN</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a563f3a4bff08e99d9029c7d7488a37f0">  189</a></span>&#160;<span class="preprocessor">#define TECLA_ASTERISCO         SDL_SCANCODE_ASTERISK</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a6a4ed79428e9b3eb40b5d6c97f1c0502">  190</a></span>&#160;<span class="preprocessor">#define TECLA_MAIS              SDL_SCANCODE_PLUS</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a61336898db13997cae61eca94ccd4d11">  191</a></span>&#160;<span class="preprocessor">#define TECLA_VIRGULA           SDL_SCANCODE_COMMA</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a933e6fb3a0a1d7527506f875c5695702">  192</a></span>&#160;<span class="preprocessor">#define TECLA_MENOS             SDL_SCANCODE_MINUS</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a0fb2a05e593d47a302e74501fbd84143">  193</a></span>&#160;<span class="preprocessor">#define TECLA_PONTO             SDL_SCANCODE_PERIOD</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a44a7065799c163e2c49d84e5e609fbf1">  194</a></span>&#160;<span class="preprocessor">#define TECLA_BARRA             SDL_SCANCODE_SLASH</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ab4f5a27cad6ac29a1f6bfc9a98dd7cbb">  195</a></span>&#160;<span class="preprocessor">#define TECLA_0                 SDL_SCANCODE_0</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#afbe6e58408ffbdbc1ee6bed5747e9a76">  196</a></span>&#160;<span class="preprocessor">#define TECLA_1                 SDL_SCANCODE_1</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a825321fedb8854135bd96b0f44ec1e12">  197</a></span>&#160;<span class="preprocessor">#define TECLA_2                 SDL_SCANCODE_2</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a6aa6ccf19ab2ee37ef27601379bcea2b">  198</a></span>&#160;<span class="preprocessor">#define TECLA_3                 SDL_SCANCODE_3</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a8e0fc98283b5e4c12d3db74850cb8ca7">  199</a></span>&#160;<span class="preprocessor">#define TECLA_4                 SDL_SCANCODE_4</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a3ba621db7cf3b26d7502271b289f70d7">  200</a></span>&#160;<span class="preprocessor">#define TECLA_5                 SDL_SCANCODE_5</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a3d43dfcbb93472c55c376840c518147d">  201</a></span>&#160;<span class="preprocessor">#define TECLA_6                 SDL_SCANCODE_6</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a9ec3a87af72fa132fbea327dd854e21f">  202</a></span>&#160;<span class="preprocessor">#define TECLA_7                 SDL_SCANCODE_7</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a3238fab0600e8236b05482e8b13d8681">  203</a></span>&#160;<span class="preprocessor">#define TECLA_8                 SDL_SCANCODE_8</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ad8aa0d697ac99e7620aa23c33419a669">  204</a></span>&#160;<span class="preprocessor">#define TECLA_9                 SDL_SCANCODE_9</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a752160683ead3f9fa8767d4101d9f002">  205</a></span>&#160;<span class="preprocessor">#define TECLA_DOISPONTOS        SDL_SCANCODE_COLON</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ad3ecf7e64d5a9263105d8ed7d3e07f29">  206</a></span>&#160;<span class="preprocessor">#define TECLA_PONTOEVIRGULA     SDL_SCANCODE_SEMICOLON</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a043e6547cc2b6fd22d78f25ec5f6e7a2">  207</a></span>&#160;<span class="preprocessor">#define TECLA_MENORQUE          SDL_SCANCODE_LESS</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#af4e93aedeb6656a5bdba05ec45d07e0b">  208</a></span>&#160;<span class="preprocessor">#define TECLA_IGUAL             SDL_SCANCODE_EQUALS</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a6cd8ce9bf864265d05451872e16a8dc1">  209</a></span>&#160;<span class="preprocessor">#define TECLA_MAIORQUE          SDL_SCANCODE_GREATER</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#aacd742f38fb128432c1ab69402358a44">  210</a></span>&#160;<span class="preprocessor">#define TECLA_INTERROGACAO      SDL_SCANCODE_QUESTION</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ac689b942e9cc53ca7b25c4bbfc0ae77a">  211</a></span>&#160;<span class="preprocessor">#define TECLA_ARROBA            SDL_SCANCODE_AT</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
+<div class="line"><a name="l00213"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a2254dd9babfc8fa40b5af04b0967b62a">  213</a></span>&#160;<span class="preprocessor">#define TECLA_ABRECOLCHETE      SDL_SCANCODE_LEFTBRACKET</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a34fd59fe7c5f2de6f3062176c5027826">  214</a></span>&#160;<span class="preprocessor">#define TECLA_CONTRABARRA       SDL_SCANCODE_BACKSLASH</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a22f34ca41c9d877beaf751abc195669d">  215</a></span>&#160;<span class="preprocessor">#define TECLA_FECHACOLCHETE     SDL_SCANCODE_RIGHTBRACKET</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a98eeb0e0405fa68b6b41174848a38874">  216</a></span>&#160;<span class="preprocessor">#define TECLA_CIRCUNFLEXO       SDL_SCANCODE_CARET</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#aab30b9e2ab4312265ba86b98195db035">  217</a></span>&#160;<span class="preprocessor">#define TECLA_TRAVESSAO         SDL_SCANCODE_UNDERSCORE</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ad7df8807cfd71ce6542b2aa3b4737a43">  218</a></span>&#160;<span class="preprocessor">#define TECLA_GRAVE             SDL_SCANCODE_BACKQUOTE</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ab9c5d38889c37200b505b64c3d3a969f">  219</a></span>&#160;<span class="preprocessor">#define TECLA_a                 SDL_SCANCODE_A</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a82094a708f9e463445885fe488286b2f">  220</a></span>&#160;<span class="preprocessor">#define TECLA_b                 SDL_SCANCODE_B</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a649dee9b204cd256008219896317401a">  221</a></span>&#160;<span class="preprocessor">#define TECLA_c                 SDL_SCANCODE_C</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a537aba39d8e2a7c40a710eeb03a90636">  222</a></span>&#160;<span class="preprocessor">#define TECLA_d                 SDL_SCANCODE_D</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a1273ab374edec5bd847bc7f887846603">  223</a></span>&#160;<span class="preprocessor">#define TECLA_e                 SDL_SCANCODE_E</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#aa97b837bce9b82733ea9a39462a17ccd">  224</a></span>&#160;<span class="preprocessor">#define TECLA_f                 SDL_SCANCODE_F</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a50300fcf1068bedd5e85596d8221b197">  225</a></span>&#160;<span class="preprocessor">#define TECLA_g                 SDL_SCANCODE_G</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#acf8589cb3f147f1bbc0de34cbec0e1da">  226</a></span>&#160;<span class="preprocessor">#define TECLA_h                 SDL_SCANCODE_H</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a11637bf887eea6c03db60723f4d66ea8">  227</a></span>&#160;<span class="preprocessor">#define TECLA_i                 SDL_SCANCODE_I</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a1f3b97aa64336c20e50ccb7332206e0f">  228</a></span>&#160;<span class="preprocessor">#define TECLA_j                 SDL_SCANCODE_J</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#accffe25385eb3ca7a48defa950ce505d">  229</a></span>&#160;<span class="preprocessor">#define TECLA_k                 SDL_SCANCODE_K</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a5f717dcdc611396650e540aab27e05c7">  230</a></span>&#160;<span class="preprocessor">#define TECLA_l                 SDL_SCANCODE_L</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a526f51e7d2112089da12dba63be02ded">  231</a></span>&#160;<span class="preprocessor">#define TECLA_m                 SDL_SCANCODE_M</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#afb71c3dcdb71c5b787fcfa5f0cc42285">  232</a></span>&#160;<span class="preprocessor">#define TECLA_n                 SDL_SCANCODE_N</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a3a13ab5c767bb798aaf0c479a5778a1a">  233</a></span>&#160;<span class="preprocessor">#define TECLA_o                 SDL_SCANCODE_O</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#acade2db2bd7a6e9fe124338f40bf932f">  234</a></span>&#160;<span class="preprocessor">#define TECLA_p                 SDL_SCANCODE_P</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a9d203e82a47d05bf8de5684bca0d66e1">  235</a></span>&#160;<span class="preprocessor">#define TECLA_q                 SDL_SCANCODE_Q</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#acbe8ed2a50a3c8a9042225549694d4fa">  236</a></span>&#160;<span class="preprocessor">#define TECLA_r                 SDL_SCANCODE_R</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a1ace12727e472a2fad0f7567e2890838">  237</a></span>&#160;<span class="preprocessor">#define TECLA_s                 SDL_SCANCODE_S</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a79e0830a56b34506b7111c8aeb55587b">  238</a></span>&#160;<span class="preprocessor">#define TECLA_t                 SDL_SCANCODE_T</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a18ecfcda8bc5368716bcccd6d77e0b52">  239</a></span>&#160;<span class="preprocessor">#define TECLA_u                 SDL_SCANCODE_U</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a0ece3d8aac814f0861c6e6a7dd498624">  240</a></span>&#160;<span class="preprocessor">#define TECLA_v                 SDL_SCANCODE_V</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a2a7a31ef321a84df04f121911d7a1e3c">  241</a></span>&#160;<span class="preprocessor">#define TECLA_w                 SDL_SCANCODE_W</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a14aab07555822d094170802ca6f9e9a6">  242</a></span>&#160;<span class="preprocessor">#define TECLA_x                 SDL_SCANCODE_X</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a18e747fd42ece4e763368db0c2d90d6a">  243</a></span>&#160;<span class="preprocessor">#define TECLA_y                 SDL_SCANCODE_Y</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a6e8e86dbed990e1b96d1b97b927dfd85">  244</a></span>&#160;<span class="preprocessor">#define TECLA_z                 SDL_SCANCODE_Z</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;</div>
+<div class="line"><a name="l00246"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ac97a34865ce1b5c2ec75e3eb91c7e255">  246</a></span>&#160;<span class="preprocessor">#define TECLA_CAPSLOCK          SDL_SCANCODE_CAPSLOCK</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
+<div class="line"><a name="l00248"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ad01554862927b6eeefb5596d0f2882cc">  248</a></span>&#160;<span class="preprocessor">#define TECLA_F1                SDL_SCANCODE_F1</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#aec85b96fc9265820775777a1a3af7851">  249</a></span>&#160;<span class="preprocessor">#define TECLA_F2                SDL_SCANCODE_F2</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#affa6e1aadc720ca852cae3f81969eaa5">  250</a></span>&#160;<span class="preprocessor">#define TECLA_F3                SDL_SCANCODE_F3</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a399532e9250ea8f9c8cd8d65a1e8a902">  251</a></span>&#160;<span class="preprocessor">#define TECLA_F4                SDL_SCANCODE_F4</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a247bdc4216b18b4e2a92a5bedd8b1430">  252</a></span>&#160;<span class="preprocessor">#define TECLA_F5                SDL_SCANCODE_F5</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a5818d6c8b8fd0c37dcf1f274f17860df">  253</a></span>&#160;<span class="preprocessor">#define TECLA_F6                SDL_SCANCODE_F6</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a0206362b61a6a742166c319207e12582">  254</a></span>&#160;<span class="preprocessor">#define TECLA_F7                SDL_SCANCODE_F7</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ab652216e4139e3c63a14a069b9b2332d">  255</a></span>&#160;<span class="preprocessor">#define TECLA_F8                SDL_SCANCODE_F8</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a992c2b67a238fe34e382ac48ea543550">  256</a></span>&#160;<span class="preprocessor">#define TECLA_F9                SDL_SCANCODE_F9</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a10e53ffd16dcf98cae87eab2e0f030ee">  257</a></span>&#160;<span class="preprocessor">#define TECLA_F10               SDL_SCANCODE_F10</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#af192d9b25770332fe6b290630514e6aa">  258</a></span>&#160;<span class="preprocessor">#define TECLA_F11               SDL_SCANCODE_F11</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a2505a4188705559d1296b0dcd5e1d320">  259</a></span>&#160;<span class="preprocessor">#define TECLA_F12               SDL_SCANCODE_F12</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;</div>
+<div class="line"><a name="l00261"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a7e54030a185ef329404214ce1f0be3e3">  261</a></span>&#160;<span class="preprocessor">#define TECLA_PRINTSCREEN       SDL_SCANCODE_PRINTSCREEN</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ababd5235fb38a9a220614ded0c750fc2">  262</a></span>&#160;<span class="preprocessor">#define TECLA_SCROLLLOCK        SDL_SCANCODE_SCROLLLOCK</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a313fd6d9e9d75edebec1cf64bb1a400f">  263</a></span>&#160;<span class="preprocessor">#define TECLA_PAUSE             SDL_SCANCODE_PAUSE</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a16fdc6dffb95fa70c1bc6c9cbb9df786">  264</a></span>&#160;<span class="preprocessor">#define TECLA_INSERT            SDL_SCANCODE_INSERT</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a071face61a65360ed9babc856c096c39">  265</a></span>&#160;<span class="preprocessor">#define TECLA_HOME              SDL_SCANCODE_HOME</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#aa496585d3a7cafc908eed2cf9a341653">  266</a></span>&#160;<span class="preprocessor">#define TECLA_PAGEUP            SDL_SCANCODE_PAGEUP</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a217d907aaaee81253bcd9de20880bb89">  267</a></span>&#160;<span class="preprocessor">#define TECLA_DELETE            SDL_SCANCODE_DELETE</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ae36699eae29f9d1fa4db9d2392fcddc0">  268</a></span>&#160;<span class="preprocessor">#define TECLA_END               SDL_SCANCODE_END</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a604f6163fb9940c7fddd99fe8592b2fc">  269</a></span>&#160;<span class="preprocessor">#define TECLA_PAGEDOWN          SDL_SCANCODE_PAGEDOWN</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ab2b99ca19152919b7f305c15230a761e">  270</a></span>&#160;<span class="preprocessor">#define TECLA_DIREITA           SDL_SCANCODE_RIGHT</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a072044a9f83cbc9901b4d5fd55497284">  271</a></span>&#160;<span class="preprocessor">#define TECLA_ESQUERDA          SDL_SCANCODE_LEFT</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a3aeab437fd86e9722b57f667d34e7041">  272</a></span>&#160;<span class="preprocessor">#define TECLA_BAIXO             SDL_SCANCODE_DOWN</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a3397d792625aa507c3c9fe06e52808bd">  273</a></span>&#160;<span class="preprocessor">#define TECLA_CIMA              SDL_SCANCODE_UP</span></div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;</div>
+<div class="line"><a name="l00275"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ac519fc8c61a1e2e82c62b99dbf8a5c8e">  275</a></span>&#160;<span class="preprocessor">#define TECLA_NUMLOCKCLEAR      SDL_SCANCODE_NUMLOCKCLEAR</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a4dd1b05ba59b4a95e3c4c04a6c54853c">  276</a></span>&#160;<span class="preprocessor">#define TECLA_KP_DIVISAO        SDL_SCANCODE_KP_DIVIDE</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a3142886999fb1b591d46fa866324a4ee">  277</a></span>&#160;<span class="preprocessor">#define TECLA_KP_MULTIPLICAO    SDL_SCANCODE_KP_MULTIPLY</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a6cc348341edff4764070968912febdbe">  278</a></span>&#160;<span class="preprocessor">#define TECLA_KP_MENOS          SDL_SCANCODE_KP_MINUS</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#aeeee5909a76251f966495f7b3f143552">  279</a></span>&#160;<span class="preprocessor">#define TECLA_KP_MAIS           SDL_SCANCODE_KP_PLUS</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a583a58aa5ef4c75086ca2ec24c2ec1fc">  280</a></span>&#160;<span class="preprocessor">#define TECLA_KP_ENTER          SDL_SCANCODE_KP_ENTER</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#aba76405b45043e27dee98bb28b45beee">  281</a></span>&#160;<span class="preprocessor">#define TECLA_KP_1              SDL_SCANCODE_KP_1</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#aec3191b88d4e24ad63d8b3f8c7604886">  282</a></span>&#160;<span class="preprocessor">#define TECLA_KP_2              SDL_SCANCODE_KP_2</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ac66753fd783afcfb35310d7d83f3c73a">  283</a></span>&#160;<span class="preprocessor">#define TECLA_KP_3              SDL_SCANCODE_KP_3</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a94a1da3b668f4deaa642e948488e3bad">  284</a></span>&#160;<span class="preprocessor">#define TECLA_KP_4              SDL_SCANCODE_KP_4</span></div>
+<div class="line"><a name="l00285"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ae66309d5ac63365f27f82a4f8c05126a">  285</a></span>&#160;<span class="preprocessor">#define TECLA_KP_5              SDL_SCANCODE_KP_5</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ae31962ba3373f9cfa5df7a32e17f8cba">  286</a></span>&#160;<span class="preprocessor">#define TECLA_KP_6              SDL_SCANCODE_KP_6</span></div>
+<div class="line"><a name="l00287"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a4b301a8843f26357eeaefecba4b7d31d">  287</a></span>&#160;<span class="preprocessor">#define TECLA_KP_7              SDL_SCANCODE_KP_7</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a9cefadd82e83646fb815957252c19c43">  288</a></span>&#160;<span class="preprocessor">#define TECLA_KP_8              SDL_SCANCODE_KP_8</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a32b8bb1156159b7d2908a44ae2e44627">  289</a></span>&#160;<span class="preprocessor">#define TECLA_KP_9              SDL_SCANCODE_KP_9</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a28cfafae6183633ffba332f037dec8af">  290</a></span>&#160;<span class="preprocessor">#define TECLA_KP_0              SDL_SCANCODE_KP_0</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a9c4a5f00e4419f18e813476227eadae3">  291</a></span>&#160;<span class="preprocessor">#define TECLA_KP_PONTO          SDL_SCANCODE_KP_PERIOD</span></div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
+<div class="line"><a name="l00293"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a4e57742a15511487e069ee025311bb68">  293</a></span>&#160;<span class="preprocessor">#define TECLA_APPLICATION       SDL_SCANCODE_APPLICATION</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a2ce18af180baf156cc0567e0393ca19c">  294</a></span>&#160;<span class="preprocessor">#define TECLA_POWER             SDL_SCANCODE_POWER</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a9d5eb5bb2ef57b50a612dd75bfd01fb2">  295</a></span>&#160;<span class="preprocessor">#define TECLA_KP_IGUAL          SDL_SCANCODE_KP_EQUALS</span></div>
+<div class="line"><a name="l00296"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ad144059f41c6483fb7880fa196adf117">  296</a></span>&#160;<span class="preprocessor">#define TECLA_KP_VIRGULA        SDL_SCANCODE_KP_COMMA</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
+<div class="line"><a name="l00298"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a22a4d7b105d65542b5a58162ddc925b5">  298</a></span>&#160;<span class="preprocessor">#define TECLA_KP_MEMADD         SDL_SCANCODE_KP_MEMADD</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a3187680d2a76edf4bb3c2e2ed49abdcc">  299</a></span>&#160;<span class="preprocessor">#define TECLA_KP_MEMSUBTRACT    SDL_SCANCODE_KP_MEMSUBTRACT</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a4e673b1c848bd3442dfbfc553a2ad138">  300</a></span>&#160;<span class="preprocessor">#define TECLA_KP_MEMMULTIPLY    SDL_SCANCODE_KP_MEMMULTIPLY</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a9cbd94799ba3d69eab2e089e8ae3a2fb">  301</a></span>&#160;<span class="preprocessor">#define TECLA_KP_MEMDIVIDE      SDL_SCANCODE_KP_MEMDIVIDE</span></div>
+<div class="line"><a name="l00302"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a7d43647947768ed959c3f9ab1f3696f0">  302</a></span>&#160;<span class="preprocessor">#define TECLA_KP_PLUSMINUS      SDL_SCANCODE_KP_PLUSMINUS</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;</div>
+<div class="line"><a name="l00304"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a6f73e1e44ca6713ad8fb08d50c78bd5e">  304</a></span>&#160;<span class="preprocessor">#define TECLA_CTRLESQUERDO      SDL_SCANCODE_LCTRL</span></div>
+<div class="line"><a name="l00305"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ad438dc4e8b46b46fd768b922f35aa795">  305</a></span>&#160;<span class="preprocessor">#define TECLA_SHIFTESQUERDO     SDL_SCANCODE_LSHIFT</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ab43197a727a8442e2eec8f95c347cd74">  306</a></span>&#160;<span class="preprocessor">#define TECLA_ALTESQUERDO       SDL_SCANCODE_LALT</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a6667a2b46febd812908b5defdfcbf1a8">  307</a></span>&#160;<span class="preprocessor">#define TECLA_LGUI              SDL_SCANCODE_LGUI</span></div>
+<div class="line"><a name="l00308"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#ab5429fb529e004ad97e68d551125e3af">  308</a></span>&#160;<span class="preprocessor">#define TECLA_CTRLDIREITO       SDL_SCANCODE_RCTRL</span></div>
+<div class="line"><a name="l00309"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a68129c0371729ba33fa77319b01bde0e">  309</a></span>&#160;<span class="preprocessor">#define TECLA_SHIFTDIREITO      SDL_SCANCODE_RSHIFT</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a149332e8e92a2e970c468c7bad33f247">  310</a></span>&#160;<span class="preprocessor">#define TECLA_ALTDIREITO        SDL_SCANCODE_RALT</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno"><a class="line" href="_tipos___p_i_g_8h.html#a853d4a0cde360c26bd76b31b15d34418">  311</a></span>&#160;<span class="preprocessor">#define TECLA_RGUI              SDL_SCANCODE_RGUI</span></div>
+<div class="ttc" id="struct_p_i_g___evento_html_a608277842dd469ad6e578b3a3515e00a"><div class="ttname"><a href="struct_p_i_g___evento.html#a608277842dd469ad6e578b3a3515e00a">PIG_Evento::janela</a></div><div class="ttdeci">InfoEventoJanela janela</div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00147">Tipos_PIG.h:147</a></div></div>
+<div class="ttc" id="_tipos___p_i_g_8h_html_a2cd08de7ac2b05a378a2342aad1909df"><div class="ttname"><a href="_tipos___p_i_g_8h.html#a2cd08de7ac2b05a378a2342aad1909df">PIG_Evento</a></div><div class="ttdeci">struct PIG_Evento PIG_Evento</div></div>
+<div class="ttc" id="struct_info_evento_janela_html_a2357b0ff09d5e54b73f56fde2c624cbd"><div class="ttname"><a href="struct_info_evento_janela.html#a2357b0ff09d5e54b73f56fde2c624cbd">InfoEventoJanela::dado2</a></div><div class="ttdeci">int dado2</div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00106">Tipos_PIG.h:106</a></div></div>
+<div class="ttc" id="_tipos___p_i_g_8h_html_a73bbe1650e12185639711a56e816133ea933d58ee9c29c4059a9e3a5dff85ab08"><div class="ttname"><a href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133ea933d58ee9c29c4059a9e3a5dff85ab08">EVENTO_CONTROLADOR</a></div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00071">Tipos_PIG.h:71</a></div></div>
+<div class="ttc" id="struct_info_evento_teclado_html_a2ebbbeef2bac0adeef90b29b6274720f"><div class="ttname"><a href="struct_info_evento_teclado.html#a2ebbbeef2bac0adeef90b29b6274720f">InfoEventoTeclado::repeticao</a></div><div class="ttdeci">int repeticao</div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00135">Tipos_PIG.h:135</a></div></div>
+<div class="ttc" id="struct_info_evento_janela_html"><div class="ttname"><a href="struct_info_evento_janela.html">InfoEventoJanela</a></div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00104">Tipos_PIG.h:104</a></div></div>
+<div class="ttc" id="_tipos___p_i_g_8h_html_a73bbe1650e12185639711a56e816133ead0e0584d322ba9ce16c72108b36fa16b"><div class="ttname"><a href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133ead0e0584d322ba9ce16c72108b36fa16b">EVENTO_MOUSE</a></div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00069">Tipos_PIG.h:69</a></div></div>
+<div class="ttc" id="_tipos___p_i_g_8h_html_a73bbe1650e12185639711a56e816133ea521fd09e650c24c7abcf3f174a34c053"><div class="ttname"><a href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133ea521fd09e650c24c7abcf3f174a34c053">EVENTO_USUARIO</a></div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00072">Tipos_PIG.h:72</a></div></div>
+<div class="ttc" id="struct_p_i_g___evento_html_a0dd3cee5c6ca607a2beb6ff6fff44e81"><div class="ttname"><a href="struct_p_i_g___evento.html#a0dd3cee5c6ca607a2beb6ff6fff44e81">PIG_Evento::tipoEvento</a></div><div class="ttdeci">PIG_TipoEvento tipoEvento</div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00145">Tipos_PIG.h:145</a></div></div>
+<div class="ttc" id="_tipos___p_i_g_8h_html_afa84a02f2ba9d3a9b667720e117912fe"><div class="ttname"><a href="_tipos___p_i_g_8h.html#afa84a02f2ba9d3a9b667720e117912fe">InfoEventoTeclado</a></div><div class="ttdeci">struct InfoEventoTeclado InfoEventoTeclado</div></div>
+<div class="ttc" id="struct_info_evento_mouse_html_abacbbe2dc55ab39769344176a925ea27"><div class="ttname"><a href="struct_info_evento_mouse.html#abacbbe2dc55ab39769344176a925ea27">InfoEventoMouse::relY</a></div><div class="ttdeci">int relY</div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00088">Tipos_PIG.h:88</a></div></div>
+<div class="ttc" id="_tipos___p_i_g_8h_html_a73bbe1650e12185639711a56e816133e"><div class="ttname"><a href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133e">PIG_TipoEvento</a></div><div class="ttdeci">PIG_TipoEvento</div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00065">Tipos_PIG.h:65</a></div></div>
+<div class="ttc" id="struct_p_i_g___evento_html_a7657689fcc8188f0cf4c9f8e9c89f7d2"><div class="ttname"><a href="struct_p_i_g___evento.html#a7657689fcc8188f0cf4c9f8e9c89f7d2">PIG_Evento::teclado</a></div><div class="ttdeci">InfoEventoTeclado teclado</div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00148">Tipos_PIG.h:148</a></div></div>
+<div class="ttc" id="struct_info_evento_teclado_html_a5cfdfb147bfd2edfcdafd26e66f4d587"><div class="ttname"><a href="struct_info_evento_teclado.html#a5cfdfb147bfd2edfcdafd26e66f4d587">InfoEventoTeclado::tecla</a></div><div class="ttdeci">int tecla</div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00134">Tipos_PIG.h:134</a></div></div>
+<div class="ttc" id="_tipos___p_i_g_8h_html_a73bbe1650e12185639711a56e816133ea538bda66ed52f22ed12785ddabcc66e8"><div class="ttname"><a href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133ea538bda66ed52f22ed12785ddabcc66e8">EVENTO_NULO</a></div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00065">Tipos_PIG.h:65</a></div></div>
+<div class="ttc" id="_tipos___p_i_g_8h_html_a73bbe1650e12185639711a56e816133ea7301f4d5fcee47f6fee6165b7c7e5cee"><div class="ttname"><a href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133ea7301f4d5fcee47f6fee6165b7c7e5cee">EVENTO_JANELA</a></div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00067">Tipos_PIG.h:67</a></div></div>
+<div class="ttc" id="struct_p_i_g___evento_html_a57a0fd3f7878055ccbdc14e6092e1246"><div class="ttname"><a href="struct_p_i_g___evento.html#a57a0fd3f7878055ccbdc14e6092e1246">PIG_Evento::mouse</a></div><div class="ttdeci">InfoEventoMouse mouse</div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00146">Tipos_PIG.h:146</a></div></div>
+<div class="ttc" id="struct_info_evento_teclado_html_a8e8399bcf714c54d73e9b4a9375d05e0"><div class="ttname"><a href="struct_info_evento_teclado.html#a8e8399bcf714c54d73e9b4a9375d05e0">InfoEventoTeclado::texto</a></div><div class="ttdeci">char texto[32]</div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00136">Tipos_PIG.h:136</a></div></div>
+<div class="ttc" id="_tipos___p_i_g_8h_html_ae4776e7ba9ae98fb14a451daa8846806"><div class="ttname"><a href="_tipos___p_i_g_8h.html#ae4776e7ba9ae98fb14a451daa8846806">InfoEventoMouse</a></div><div class="ttdeci">struct InfoEventoMouse InfoEventoMouse</div></div>
+<div class="ttc" id="_tipos___p_i_g_8h_html_a73bbe1650e12185639711a56e816133eab5eb4b80cc2add1e032e342c752c2681"><div class="ttname"><a href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133eab5eb4b80cc2add1e032e342c752c2681">EVENTO_GERAL</a></div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00066">Tipos_PIG.h:66</a></div></div>
+<div class="ttc" id="struct_info_evento_teclado_html_af4ba03b104f866071c02a882400c6121"><div class="ttname"><a href="struct_info_evento_teclado.html#af4ba03b104f866071c02a882400c6121">InfoEventoTeclado::inicio</a></div><div class="ttdeci">int inicio</div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00137">Tipos_PIG.h:137</a></div></div>
+<div class="ttc" id="_tipos___p_i_g_8h_html_a73bbe1650e12185639711a56e816133ea33e8c80d7f8cc910775acf37b89f6067"><div class="ttname"><a href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133ea33e8c80d7f8cc910775acf37b89f6067">EVENTO_TECLADO</a></div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00068">Tipos_PIG.h:68</a></div></div>
+<div class="ttc" id="struct_info_evento_mouse_html_ad7f671871e99cdf07f97329a5c3ac3d5"><div class="ttname"><a href="struct_info_evento_mouse.html#ad7f671871e99cdf07f97329a5c3ac3d5">InfoEventoMouse::acao</a></div><div class="ttdeci">int acao</div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00085">Tipos_PIG.h:85</a></div></div>
+<div class="ttc" id="struct_info_evento_mouse_html_af33a4a28bb319e7665bc62c9e8cbdec6"><div class="ttname"><a href="struct_info_evento_mouse.html#af33a4a28bb319e7665bc62c9e8cbdec6">InfoEventoMouse::posY</a></div><div class="ttdeci">int posY</div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00086">Tipos_PIG.h:86</a></div></div>
+<div class="ttc" id="struct_info_evento_janela_html_a8dc386581586a2cb197b8351129b8440"><div class="ttname"><a href="struct_info_evento_janela.html#a8dc386581586a2cb197b8351129b8440">InfoEventoJanela::dado1</a></div><div class="ttdeci">int dado1</div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00106">Tipos_PIG.h:106</a></div></div>
+<div class="ttc" id="struct_info_evento_teclado_html"><div class="ttname"><a href="struct_info_evento_teclado.html">InfoEventoTeclado</a></div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00132">Tipos_PIG.h:132</a></div></div>
+<div class="ttc" id="struct_info_evento_mouse_html_a1172176a50f9cbb386c68d95f02f4c4d"><div class="ttname"><a href="struct_info_evento_mouse.html#a1172176a50f9cbb386c68d95f02f4c4d">InfoEventoMouse::botao</a></div><div class="ttdeci">int botao</div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00087">Tipos_PIG.h:87</a></div></div>
+<div class="ttc" id="struct_info_evento_mouse_html_a33b5db5f4c31765c0530754fed4c0303"><div class="ttname"><a href="struct_info_evento_mouse.html#a33b5db5f4c31765c0530754fed4c0303">InfoEventoMouse::posX</a></div><div class="ttdeci">int posX</div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00086">Tipos_PIG.h:86</a></div></div>
+<div class="ttc" id="struct_info_evento_teclado_html_a296aa09c2b2b164ca1e58aff7394d7f3"><div class="ttname"><a href="struct_info_evento_teclado.html#a296aa09c2b2b164ca1e58aff7394d7f3">InfoEventoTeclado::acao</a></div><div class="ttdeci">int acao</div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00133">Tipos_PIG.h:133</a></div></div>
+<div class="ttc" id="struct_info_evento_janela_html_add917a545c6352dccd69e6988caff486"><div class="ttname"><a href="struct_info_evento_janela.html#add917a545c6352dccd69e6988caff486">InfoEventoJanela::acao</a></div><div class="ttdeci">int acao</div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00105">Tipos_PIG.h:105</a></div></div>
+<div class="ttc" id="struct_info_evento_mouse_html_a3853c91166bcea99068ca4544b6001d6"><div class="ttname"><a href="struct_info_evento_mouse.html#a3853c91166bcea99068ca4544b6001d6">InfoEventoMouse::relX</a></div><div class="ttdeci">int relX</div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00088">Tipos_PIG.h:88</a></div></div>
+<div class="ttc" id="_tipos___p_i_g_8h_html_a1d15514e3f52654fcee15c36bffdabdd"><div class="ttname"><a href="_tipos___p_i_g_8h.html#a1d15514e3f52654fcee15c36bffdabdd">InfoEventoJanela</a></div><div class="ttdeci">struct InfoEventoJanela InfoEventoJanela</div></div>
+<div class="ttc" id="struct_p_i_g___evento_html"><div class="ttname"><a href="struct_p_i_g___evento.html">PIG_Evento</a></div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00144">Tipos_PIG.h:144</a></div></div>
+<div class="ttc" id="struct_info_evento_teclado_html_a1fa842c7b2fefe07ddb2f218899090d7"><div class="ttname"><a href="struct_info_evento_teclado.html#a1fa842c7b2fefe07ddb2f218899090d7">InfoEventoTeclado::tamanhoSelecao</a></div><div class="ttdeci">int tamanhoSelecao</div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00137">Tipos_PIG.h:137</a></div></div>
+<div class="ttc" id="_tipos___p_i_g_8h_html_a73bbe1650e12185639711a56e816133eae0053a9ad8d900b581e215091a07ad70"><div class="ttname"><a href="_tipos___p_i_g_8h.html#a73bbe1650e12185639711a56e816133eae0053a9ad8d900b581e215091a07ad70">EVENTO_AUDIO</a></div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00070">Tipos_PIG.h:70</a></div></div>
+<div class="ttc" id="struct_info_evento_mouse_html"><div class="ttname"><a href="struct_info_evento_mouse.html">InfoEventoMouse</a></div><div class="ttdef"><b>Definition:</b> <a href="_tipos___p_i_g_8h_source.html#l00084">Tipos_PIG.h:84</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_e04ae2849dfa520b4ee2c9f7e9ff15de.html">Desktop</a></li><li class="navelem"><a class="el" href="_tipos___p_i_g_8h.html">Tipos_PIG.h</a></li>
+    <li class="footer">Gerado por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
+</body>
+</html>
