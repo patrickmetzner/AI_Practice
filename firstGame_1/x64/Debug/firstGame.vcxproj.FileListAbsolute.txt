@@ -1,0 +1,2 @@
+C:\Users\Patrick\Documents\GitHub\Patrick\cppPractice\firstGame\x64\Debug\firstGame.exe
+C:\Users\Patrick\Documents\GitHub\Patrick\cppPractice\firstGame\x64\Debug\firstGame.pdb
