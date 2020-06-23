@@ -1,9 +1,0 @@
-Controles
-
-'Setinha para cima' faz o dinossauro Pular
-'Setinha para baixo' faz o dinossauro Abaixar
-'Enter' faz a partida reiniciar (para você não precisar esperar a I.A perder para jogar novamente)
-
-
-Na pasta 'src' existe um arquivo chamado 'rede', é esse arquivo que contém a rede neural...
-Não delete (nem renomeie) ele ou você perderá a rede neural já treinada.
