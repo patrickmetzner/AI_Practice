@@ -1,4 +1,5 @@
 #include "NeuralNetwork.h"
+#include <iostream>
 #include <cstdlib>				// malloc & free
 #include <fstream>				// read and create files
 
@@ -88,22 +89,111 @@ void NeuralNetwork_DestroyNeuralNetwork(NeuralNetwork* myNeuralNetwork) {
 	free(myNeuralNetwork);
 }
 
-NeuralNetwork* NeuralNetwork_LoadNeuralNetwork(char* fileName, const int numberOfInputNeurons, const int numberOfHiddenLayers, const int numberOfHiddenNeurons, const int numberOfOutputNeurons) {
-	
-	
+void NeuralNetwork_CopyFileToArrays(const char* fileName, const int numberOfInputNeurons, const int numberOfHiddenLayers, const int numberOfHiddenNeurons, const int numberOfOutputNeurons,
+	double* NeuralNetwork_HiddenWeights, double* NeuralNetwork_OutputWeights) {
 
-	std::ifstream NeuralNetworkTxtFile(fileName);
+	std::ifstream fileData(fileName);
 
-	NeuralNetwork* NeuralNetwork_fromTxtFile;
-	NeuralNetwork_fromTxtFile = NeuralNetwork_CreateNeuralNetwork(numberOfInputNeurons, numberOfHiddenLayers, numberOfHiddenNeurons, numberOfOutputNeurons);
+	for (int i = 0; i < ((numberOfHiddenLayers - 1) * numberOfHiddenNeurons * numberOfHiddenNeurons) + numberOfInputNeurons * numberOfHiddenNeurons; i++) {
+		fileData >> NeuralNetwork_HiddenWeights[i];
+	}
+
+	for (int i = 0; i < numberOfOutputNeurons * numberOfHiddenNeurons; i++) {
+		fileData >> NeuralNetwork_OutputWeights[i];
+	}
+
+	for (int i = 0; i < ((numberOfHiddenLayers - 1) * numberOfHiddenNeurons * numberOfHiddenNeurons) + numberOfInputNeurons * numberOfHiddenNeurons; i++) {
+		std::cout << NeuralNetwork_HiddenWeights[i] << " ";
+	}
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+	for (int i = 0; i < numberOfOutputNeurons * numberOfHiddenNeurons; i++) {
+		std::cout << NeuralNetwork_OutputWeights[i] << " ";
+	}
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+	int latestArrayPosition;
+	for (int k = 0; k < numberOfHiddenLayers; k++) {
+		for (int i = 0; i < numberOfHiddenNeurons; i++) {
+			if (k == 0) {
+				for (int j = 0; j < numberOfInputNeurons; j++) {
+					std::cout << NeuralNetwork_HiddenWeights[(i * numberOfInputNeurons) + j] << '	';
+					latestArrayPosition = 1 + (i * numberOfInputNeurons) + j;
+				}
+			}
+			else {
+				for (int j = 0; j < numberOfHiddenNeurons; j++) {
+					std::cout << NeuralNetwork_HiddenWeights[latestArrayPosition + ((k - 1) * numberOfHiddenNeurons * numberOfHiddenNeurons) + (i * numberOfHiddenNeurons) + j] << '	';
+				}
+			}
+			std::cout << std::endl;
+		}
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+
+
+	for (int i = 0; i < numberOfOutputNeurons; i++) {
+		for (int j = 0; j < numberOfHiddenNeurons; j++) {
+			std::cout << NeuralNetwork_OutputWeights[(i * numberOfHiddenNeurons) + j] << "	";
+		}
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+
+	std::cout << "file read" << std::endl;
+	std::cout << std::endl;
+
+	fileData.close();
+}
 
 
 
+void NeuralNetwork_CopyArraysToFile(const char* fileName, const int numberOfInputNeurons, const int numberOfHiddenLayers, const int numberOfHiddenNeurons, const int numberOfOutputNeurons,
+	double* NeuralNetwork_HiddenWeights, double* NeuralNetwork_OutputWeights) {
 
+	std::ofstream NN_File(fileName);
 
-	NeuralNetworkTxtFile.close();
+	int latestArrayPosition;
+	for (int k = 0; k < numberOfHiddenLayers; k++) {
+		for (int i = 0; i < numberOfHiddenNeurons; i++) {
+			if (k == 0) {
+				for (int j = 0; j < numberOfInputNeurons; j++) {
+					NN_File << NeuralNetwork_HiddenWeights[(i * numberOfInputNeurons) + j] << '	';
+					latestArrayPosition = 1 + (i * numberOfInputNeurons) + j;
+				}
+			}
+			else {
+				for (int j = 0; j < numberOfHiddenNeurons; j++) {
+					NN_File << NeuralNetwork_HiddenWeights[latestArrayPosition + ((k - 1) * numberOfHiddenNeurons * numberOfHiddenNeurons) + (i * numberOfHiddenNeurons) + j] << '	';
+				}
+			}
+			NN_File << std::endl;
+		}
+		NN_File << std::endl;
+	}
+	NN_File << std::endl;
 
-	return NeuralNetwork_fromTxtFile;
+	for (int i = 0; i < numberOfOutputNeurons; i++) {
+		for (int j = 0; j < numberOfHiddenNeurons; j++) {
+			NN_File << NeuralNetwork_OutputWeights[(i * numberOfHiddenNeurons) + j] << "	";
+		}
+		NN_File << std::endl;
+	}
+	NN_File << std::endl;
+
+	NN_File << "-----------------" << std::endl;
+	NN_File << "Neural Network structure:" << std::endl;
+	NN_File << numberOfInputNeurons - BIAS << " Input Neurons + BIAS" << std::endl;
+	NN_File << numberOfHiddenLayers << " Hidden Layers" << std::endl;
+	NN_File << numberOfHiddenNeurons - BIAS << " Hidden Neurons + BIAS" << std::endl;
+	NN_File << numberOfOutputNeurons << " Output Neurons" << std::endl;
+
+	NN_File.close();
+
+	std::cout << "file saved" << std::endl;
 }
 
 void NeuralNetwork_CopyLayersToArray(NeuralNetwork* myNeuralNetwork, double& myNeuralNetwork_Array) {

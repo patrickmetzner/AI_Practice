@@ -4,14 +4,6 @@
 #define initialWeight	(1.0) 
 #define BIAS			1
 
-const int numberOfInputNeurons = 5 + BIAS;
-const int numberOfHiddenLayers = 5;
-const int numberOfHiddenNeurons = 3 + BIAS;
-const int numberOfOutputNeurons = 4;
-
-double NeuralNetwork_HiddenWeights[((numberOfHiddenLayers - 1) * numberOfHiddenNeurons * numberOfHiddenNeurons) + numberOfInputNeurons * numberOfHiddenNeurons];
-double NeuralNetwork_OutputWeights[numberOfOutputNeurons * numberOfHiddenNeurons];
-
 typedef struct neuron {
 
 	double* weight;
@@ -49,7 +41,11 @@ NeuralNetwork* NeuralNetwork_CreateNeuralNetwork(int numberOfInputNeurons, int n
 
 void NeuralNetwork_DestroyNeuralNetwork(NeuralNetwork* myNeuralNetwork); 
 
-NeuralNetwork* NeuralNetwork_LoadNeuralNetwork(char* fileName, const int numberOfInputNeurons, const int numberOfHiddenLayers, const int numberOfHiddenNeurons, const int numberOfOutputNeurons);
+void NeuralNetwork_CopyFileToArrays(const char* fileName, const int numberOfInputNeurons, const int numberOfHiddenLayers, const int numberOfHiddenNeurons, const int numberOfOutputNeurons,
+	double* NeuralNetwork_HiddenWeights, double* NeuralNetwork_OutputWeights);
+
+void NeuralNetwork_CopyArraysToFile(const char* fileName, const int numberOfInputNeurons, const int numberOfHiddenLayers, const int numberOfHiddenNeurons, const int numberOfOutputNeurons,
+	double* NeuralNetwork_HiddenWeights, double* NeuralNetwork_OutputWeights);
 
 void NeuralNetwork_CopyLayersToArray(NeuralNetwork* myNeuralNetwork, double& myNeuralNetwork_Array);
 
