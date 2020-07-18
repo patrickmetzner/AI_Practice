@@ -136,8 +136,6 @@ void NeuralNetwork_CopyFileToArrays(const char* fileName, const int numberOfInpu
 	dataFile.close();
 }
 
-
-
 void NeuralNetwork_CopyArraysToFile(const char* fileName, const int numberOfInputNeurons, const int numberOfHiddenLayers, const int numberOfHiddenNeurons, const int numberOfOutputNeurons,
 	double* NeuralNetwork_HiddenWeights, double* NeuralNetwork_OutputWeights) {
 
@@ -191,15 +189,70 @@ void NeuralNetwork_CopyArraysToFile(const char* fileName, const int numberOfInpu
 	std::cout << "file saved" << std::endl;
 }
 
-void NeuralNetwork_CopyLayersToArray(NeuralNetwork* myNeuralNetwork, double& myNeuralNetwork_Array) {
+void NeuralNetwork_CopyArraysToNeuralNetwork(NeuralNetwork* myNeuralNetwork, double* NeuralNetwork_HiddenWeights, double* NeuralNetwork_OutputWeights) {
+	
+	int numberOfInputNeurons = myNeuralNetwork->inputLayer.numberOfNeurons;
+	int numberOfHiddenLayers = myNeuralNetwork->numberOfHiddenLayers;
+	int numberOfHiddenNeurons = myNeuralNetwork->hiddenLayer[0].numberOfNeurons;
+	int numberOfOutputNeurons = myNeuralNetwork->outputLayer.numberOfNeurons;
+	
+	int latestArrayPosition=0;
+	for (int k = 0; k < numberOfHiddenLayers; k++) {
+		for (int i = 0; i < numberOfHiddenNeurons; i++) {
+			if (k == 0) {
+				for (int j = 0; j < numberOfInputNeurons; j++) {
+					myNeuralNetwork->hiddenLayer[k].neurons[i].weight[j] = NeuralNetwork_HiddenWeights[(i * numberOfInputNeurons) + j];
+					latestArrayPosition = 1 + (i * numberOfInputNeurons) + j;
+				}
+			}
+			else {
+				for (int j = 0; j < numberOfHiddenNeurons; j++) {
+					myNeuralNetwork->hiddenLayer[k].neurons[i].weight[j] = NeuralNetwork_HiddenWeights
+						[latestArrayPosition + ((k - 1) * numberOfHiddenNeurons * numberOfHiddenNeurons) + (i * numberOfHiddenNeurons) + j];
+				}
+			}
+		}
+	}
 
+	for (int i = 0; i < numberOfOutputNeurons; i++) {
+		for (int j = 0; j < numberOfHiddenNeurons; j++) {
+			myNeuralNetwork->outputLayer.neurons[i].weight[j] = NeuralNetwork_OutputWeights[(i * numberOfHiddenNeurons) + j];
+		}
+	}
 }
 
-void NeuralNetwork_SaveNeuralNetwork(NeuralNetwork* myNeuralNetwork, char* fileName) {
+void NeuralNetwork_CopyNeuralNetworkToArrays(NeuralNetwork* myNeuralNetwork, double* NeuralNetwork_HiddenWeights, double* NeuralNetwork_OutputWeights) {
 
+	int numberOfInputNeurons = myNeuralNetwork->inputLayer.numberOfNeurons;
+	int numberOfHiddenLayers = myNeuralNetwork->numberOfHiddenLayers;
+	int numberOfHiddenNeurons = myNeuralNetwork->hiddenLayer[0].numberOfNeurons;
+	int numberOfOutputNeurons = myNeuralNetwork->outputLayer.numberOfNeurons;
+
+	int latestArrayPosition = 0;
+	for (int k = 0; k < numberOfHiddenLayers; k++) {
+		for (int i = 0; i < numberOfHiddenNeurons; i++) {
+			if (k == 0) {
+				for (int j = 0; j < numberOfInputNeurons; j++) {
+					NeuralNetwork_HiddenWeights[(i * numberOfInputNeurons) + j] = myNeuralNetwork->hiddenLayer[k].neurons[i].weight[j];
+					latestArrayPosition = 1 + (i * numberOfInputNeurons) + j;
+				}
+			}
+			else {
+				for (int j = 0; j < numberOfHiddenNeurons; j++) {
+					NeuralNetwork_HiddenWeights[latestArrayPosition + ((k - 1) * numberOfHiddenNeurons * numberOfHiddenNeurons) + (i * numberOfHiddenNeurons) + j]
+						= myNeuralNetwork->hiddenLayer[k].neurons[i].weight[j];
+				}
+			}
+		}
+	}
+
+	for (int i = 0; i < numberOfOutputNeurons; i++) {
+		for (int j = 0; j < numberOfHiddenNeurons; j++) {
+			NeuralNetwork_OutputWeights[(i * numberOfHiddenNeurons) + j] = myNeuralNetwork->outputLayer.neurons[i].weight[j];
+		}
+	}
 }
 
-void NeuralNetwork_randomMutations(NeuralNetwork* myNeuralNetwork) {
+void NeuralNetwork_RandomMutations(NeuralNetwork* myNeuralNetwork) {
 
 }
-

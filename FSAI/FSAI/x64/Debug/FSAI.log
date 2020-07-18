@@ -1,3 +1,6 @@
 ﻿  Using triplet "x64-windows" from "C:\Development\vcpkg-master\vcpkg-master\installed\x64-windows\"
   NeuralNetwork.cpp
+  main.cpp
+  Generating Code...
+  LINK : C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\x64\Debug\FSAI.exe not found or not built by the last incremental link; performing full link
   FSAI.vcxproj -> C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\x64\Debug\FSAI.exe
