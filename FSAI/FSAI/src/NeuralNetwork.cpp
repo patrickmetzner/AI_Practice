@@ -253,6 +253,30 @@ void NeuralNetwork_CopyNeuralNetworkToArrays(NeuralNetwork* myNeuralNetwork, dou
 	}
 }
 
-void NeuralNetwork_RandomMutations(NeuralNetwork* myNeuralNetwork) {
+void NeuralNetwork_RandomMutations(NeuralNetwork* myNeuralNetwork, double* NeuralNetwork_HiddenWeights, double* NeuralNetwork_OutputWeights) {
 
+	int numberOfInputNeurons = myNeuralNetwork->inputLayer.numberOfNeurons;
+	int numberOfHiddenLayers = myNeuralNetwork->numberOfHiddenLayers;
+	int numberOfHiddenNeurons = myNeuralNetwork->hiddenLayer[0].numberOfNeurons;
+	int numberOfOutputNeurons = myNeuralNetwork->outputLayer.numberOfNeurons;
+	int sizeOfHiddenWeightsArray = ((numberOfHiddenLayers - 1) * numberOfHiddenNeurons * numberOfHiddenNeurons) + numberOfInputNeurons * numberOfHiddenNeurons;
+	int sizeOfOutputWeightsArray = numberOfOutputNeurons * numberOfHiddenNeurons;
+	int sizeOfNeuralNetwork = sizeOfHiddenWeightsArray + sizeOfOutputWeightsArray;
+
+	NeuralNetwork_CopyNeuralNetworkToArrays(myNeuralNetwork, NeuralNetwork_HiddenWeights, NeuralNetwork_OutputWeights);
+
+	int numberOfMutations = ceil(learningRate * (double)(sizeOfNeuralNetwork));
+	int mutationPosition = 0;
+	for (int i = 0; i < numberOfMutations; i++) {
+		mutationPosition = rand() % sizeOfNeuralNetwork;
+
+		if (mutationPosition < sizeOfHiddenWeightsArray) {
+			NeuralNetwork_HiddenWeights[mutationPosition] = (double)(rand() % 2000 - (double)1000) / 1000;
+		}
+		else {
+			NeuralNetwork_OutputWeights[mutationPosition - sizeOfHiddenWeightsArray] = (double)(rand() % 2000 - (double)1000) / 1000;
+		}
+	}
+
+	NeuralNetwork_CopyArraysToNeuralNetwork(myNeuralNetwork, NeuralNetwork_HiddenWeights, NeuralNetwork_OutputWeights);
 }
