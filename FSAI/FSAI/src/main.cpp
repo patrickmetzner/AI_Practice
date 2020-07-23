@@ -15,15 +15,16 @@ ObstacleObject* obstacle2;
 SDL_Renderer* Game::renderer = nullptr;
 const Uint8* KeyboardState;
 
-const int numberOfInputNeurons = 7 + BIAS;
-const int numberOfHiddenLayers = 2;
-const int numberOfHiddenNeurons = 4 + BIAS;
-const int numberOfOutputNeurons = 2;
-double NeuralNetwork_HiddenWeights[((numberOfHiddenLayers - 1) * numberOfHiddenNeurons * numberOfHiddenNeurons) + numberOfInputNeurons * numberOfHiddenNeurons];
-double NeuralNetwork_OutputWeights[numberOfOutputNeurons * numberOfHiddenNeurons];
 
 int main(int argc, char* argv[]) {
 	srand((int)time(0));
+
+	const int numberOfInputNeurons = 7 + BIAS;
+	const int numberOfHiddenLayers = 2;
+	const int numberOfHiddenNeurons = 4 + BIAS;
+	const int numberOfOutputNeurons = 2;
+	double NeuralNetwork_HiddenWeights[((numberOfHiddenLayers - 1) * numberOfHiddenNeurons * numberOfHiddenNeurons) + numberOfInputNeurons * numberOfHiddenNeurons];
+	double NeuralNetwork_OutputWeights[numberOfOutputNeurons * numberOfHiddenNeurons];
 
 	const int FPS = 60;
 	const int frameDelay = 1000 / FPS;

@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FSAI", "FSAI\FSAI.vcxproj", "{9992C546-A471-4557-A71F-2D617D177463}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FSAI_GoogleTest", "FSAI_GoogleTest\FSAI_GoogleTest.vcxproj", "{F72CF279-CCD6-4AFF-BC1F-5478DECC7BF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{9992C546-A471-4557-A71F-2D617D177463}.Release|x64.Build.0 = Release|x64
 		{9992C546-A471-4557-A71F-2D617D177463}.Release|x86.ActiveCfg = Release|Win32
 		{9992C546-A471-4557-A71F-2D617D177463}.Release|x86.Build.0 = Release|Win32
+		{F72CF279-CCD6-4AFF-BC1F-5478DECC7BF3}.Debug|x64.ActiveCfg = Debug|x64
+		{F72CF279-CCD6-4AFF-BC1F-5478DECC7BF3}.Debug|x64.Build.0 = Debug|x64
+		{F72CF279-CCD6-4AFF-BC1F-5478DECC7BF3}.Debug|x86.ActiveCfg = Debug|Win32
+		{F72CF279-CCD6-4AFF-BC1F-5478DECC7BF3}.Debug|x86.Build.0 = Debug|Win32
+		{F72CF279-CCD6-4AFF-BC1F-5478DECC7BF3}.Release|x64.ActiveCfg = Release|x64
+		{F72CF279-CCD6-4AFF-BC1F-5478DECC7BF3}.Release|x64.Build.0 = Release|x64
+		{F72CF279-CCD6-4AFF-BC1F-5478DECC7BF3}.Release|x86.ActiveCfg = Release|Win32
+		{F72CF279-CCD6-4AFF-BC1F-5478DECC7BF3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
