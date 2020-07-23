@@ -1,7 +1,6 @@
 ﻿  Using triplet "x64-windows" from "C:\Development\vcpkg-master\vcpkg-master\installed\x64-windows\"
-  NeuralNetwork.cpp
-C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\NeuralNetwork.cpp(268,24): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
   main.cpp
-  Generating Code...
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(26,9): warning C4101: 'NeuralNetwork_HiddenWeights': unreferenced local variable
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(27,9): warning C4101: 'NeuralNetwork_OutputWeights': unreferenced local variable
   LINK : C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\x64\Debug\FSAI.exe not found or not built by the last incremental link; performing full link
   FSAI.vcxproj -> C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\x64\Debug\FSAI.exe
