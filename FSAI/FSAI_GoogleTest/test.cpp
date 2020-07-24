@@ -5,7 +5,7 @@
 #include <fstream>
 
 const int numberOfInputNeurons = 6 + BIAS;
-const int numberOfHiddenLayers = 3;
+const int numberOfHiddenLayers = 1;
 const int numberOfHiddenNeurons = 4 + BIAS;
 const int numberOfOutputNeurons = 2;
 
@@ -147,4 +147,44 @@ TEST(TestNeuralNetwork, TestRandomMutations) {
 	EXPECT_EQ(numberOfMutations, mutationCounter);
 }
 
+TEST(TestNeuralNetwork, TestInputAndOutput) {
+	// First case
+	NeuralNetwork* myNeuralNetwork_1 = NeuralNetwork_CreateNeuralNetwork(4, 2, 3, 2);
 
+	double myNeuralNetwork_1_HiddenWeights[((2 - 1) * 3 * 3) + 4 * 3];
+	double myNeuralNetwork_1_OutputWeights[2 * 3];
+	double myNeuralNetwork_1_InputArray[4];
+	double myNeuralNetwork_1_OutputArray[2];
+
+	WriteSequenceToArray(myNeuralNetwork_1_HiddenWeights, 21);
+	WriteSequenceToArray(myNeuralNetwork_1_OutputWeights, 6);
+	WriteSequenceToArray(myNeuralNetwork_1_InputArray, 4);
+
+	NeuralNetwork_CopyArraysToNeuralNetwork(myNeuralNetwork_1, myNeuralNetwork_1_HiddenWeights, myNeuralNetwork_1_OutputWeights);
+
+	NeuralNetwork_CalculateOutput(myNeuralNetwork_1, myNeuralNetwork_1_InputArray, myNeuralNetwork_1_OutputArray);
+
+	EXPECT_EQ(myNeuralNetwork_1_OutputArray[0], 6300);
+	EXPECT_EQ(myNeuralNetwork_1_OutputArray[1], 10000);
+
+
+	// Second case
+	NeuralNetwork* myNeuralNetwork_2 = NeuralNetwork_CreateNeuralNetwork(6, 1, 4, 3);
+
+	double myNeuralNetwork_2_HiddenWeights[((1 - 1) * 4 * 4) + 6 * 4];
+	double myNeuralNetwork_2_OutputWeights[3 * 4];
+	double myNeuralNetwork_2_InputArray[6];
+	double myNeuralNetwork_2_OutputArray[3];
+
+	WriteSequenceToArray(myNeuralNetwork_2_HiddenWeights, 24);
+	WriteSequenceToArray(myNeuralNetwork_2_OutputWeights, 12);
+	WriteSequenceToArray(myNeuralNetwork_2_InputArray, 6);
+
+	NeuralNetwork_CopyArraysToNeuralNetwork(myNeuralNetwork_2, myNeuralNetwork_2_HiddenWeights, myNeuralNetwork_2_OutputWeights);
+
+	NeuralNetwork_CalculateOutput(myNeuralNetwork_2, myNeuralNetwork_2_InputArray, myNeuralNetwork_2_OutputArray);
+
+	EXPECT_EQ(myNeuralNetwork_2_OutputArray[0], 1590);
+	EXPECT_EQ(myNeuralNetwork_2_OutputArray[1], 4630);
+	EXPECT_EQ(myNeuralNetwork_2_OutputArray[2], 7670);
+}

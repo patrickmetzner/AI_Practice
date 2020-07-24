@@ -51,4 +51,6 @@ void NeuralNetwork_CopyArraysToNeuralNetwork(NeuralNetwork* myNeuralNetwork, dou
 
 void NeuralNetwork_CopyNeuralNetworkToArrays(NeuralNetwork* myNeuralNetwork, double* NeuralNetwork_HiddenWeights, double* NeuralNetwork_OutputWeights);
 
+void NeuralNetwork_CalculateOutput(NeuralNetwork* myNeuralNetwork, double* NeuralNetwork_InputArray, double* NeuralNetwork_OutputArray);
+
 void NeuralNetwork_RandomMutations(NeuralNetwork* myNeuralNetwork, double* NeuralNetwork_HiddenWeights, double* NeuralNetwork_OutputWeights);

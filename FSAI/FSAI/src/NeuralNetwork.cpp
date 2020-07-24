@@ -253,6 +253,50 @@ void NeuralNetwork_CopyNeuralNetworkToArrays(NeuralNetwork* myNeuralNetwork, dou
 	}
 }
 
+void NeuralNetwork_CalculateOutput(NeuralNetwork* myNeuralNetwork, double* NeuralNetwork_InputArray, double* NeuralNetwork_OutputArray) {
+
+	int numberOfInputNeurons = myNeuralNetwork->inputLayer.numberOfNeurons;
+	int numberOfHiddenLayers = myNeuralNetwork->numberOfHiddenLayers;
+	int numberOfHiddenNeurons = myNeuralNetwork->hiddenLayer[0].numberOfNeurons;
+	int numberOfOutputNeurons = myNeuralNetwork->outputLayer.numberOfNeurons;
+	double weightsSumProduct = 0;
+
+	for (int i = 0; i < numberOfInputNeurons; i++) {
+		myNeuralNetwork->inputLayer.neurons[i].output = NeuralNetwork_InputArray[i];
+	}
+
+	for (int k = 0; k < numberOfHiddenLayers; k++) {
+		for (int j = 0; j < numberOfHiddenNeurons; j++) {
+			if (k == 0) {
+				weightsSumProduct = 0;
+				for (int i = 0; i < numberOfInputNeurons; i++) {
+					weightsSumProduct += myNeuralNetwork->inputLayer.neurons[i].output * myNeuralNetwork->hiddenLayer[k].neurons[j].weight[i];
+				}
+				myNeuralNetwork->hiddenLayer[k].neurons[j].output = relu(weightsSumProduct);
+			}
+			else {
+				weightsSumProduct = 0;
+				for (int i = 0; i < numberOfHiddenNeurons; i++) {
+					weightsSumProduct += myNeuralNetwork->hiddenLayer[k-1].neurons[i].output * myNeuralNetwork->hiddenLayer[k].neurons[j].weight[i];
+				}
+				myNeuralNetwork->hiddenLayer[k].neurons[j].output = relu(weightsSumProduct);
+			}
+		}
+	}
+
+	for (int j = 0; j < numberOfOutputNeurons; j++) {
+		weightsSumProduct = 0;
+		for (int i = 0; i < numberOfHiddenNeurons; i++) {
+			weightsSumProduct += myNeuralNetwork->hiddenLayer[numberOfHiddenLayers - 1].neurons[i].output * myNeuralNetwork->outputLayer.neurons[j].weight[i];
+		}
+		myNeuralNetwork->outputLayer.neurons[j].output = relu(weightsSumProduct);
+	}
+
+	for (int i = 0; i < numberOfOutputNeurons; i++) {
+		NeuralNetwork_OutputArray[i] = myNeuralNetwork->outputLayer.neurons[i].output;
+	}
+}
+
 void NeuralNetwork_RandomMutations(NeuralNetwork* myNeuralNetwork, double* NeuralNetwork_HiddenWeights, double* NeuralNetwork_OutputWeights) {
 
 	int numberOfInputNeurons = myNeuralNetwork->inputLayer.numberOfNeurons;
