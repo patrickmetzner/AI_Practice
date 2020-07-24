@@ -4,9 +4,9 @@
 #include <time.h>				// time(0)
 #include <fstream>
 
-#define numberOfInputNeurons	(6 + BIAS)
-#define numberOfHiddenLayers	(1)
-#define numberOfHiddenNeurons	(4 + BIAS)
+#define numberOfInputNeurons	(7 + BIAS)
+#define numberOfHiddenLayers	(5)
+#define numberOfHiddenNeurons	(6 + BIAS)
 #define numberOfOutputNeurons	(2)
 
 int sizeOfHiddenWeightsArray = ((numberOfHiddenLayers - 1) * numberOfHiddenNeurons * numberOfHiddenNeurons) + numberOfInputNeurons * numberOfHiddenNeurons;
@@ -34,12 +34,12 @@ TEST(TestNeuralNetwork, TestArraysAndFiles) {
 	WriteSequenceToArray(NeuralNetwork_HiddenWeights, sizeOfHiddenWeightsArray);
 	WriteSequenceToArray(NeuralNetwork_OutputWeights, sizeOfOutputWeightsArray);
 
-	NeuralNetwork_CopyArraysToFile("OutputSequence.txt", numberOfInputNeurons, numberOfHiddenLayers, numberOfHiddenNeurons, numberOfOutputNeurons, NeuralNetwork_HiddenWeights, NeuralNetwork_OutputWeights);
+	NeuralNetwork_CopyArraysToFile("testFiles\\OutputSequence.txt", numberOfInputNeurons, numberOfHiddenLayers, numberOfHiddenNeurons, numberOfOutputNeurons, NeuralNetwork_HiddenWeights, NeuralNetwork_OutputWeights);
 
 	ClearArray(NeuralNetwork_HiddenWeights, sizeOfHiddenWeightsArray);
 	ClearArray(NeuralNetwork_OutputWeights, sizeOfOutputWeightsArray);
 
-	NeuralNetwork_CopyFileToArrays("OutputSequence.txt", numberOfInputNeurons, numberOfHiddenLayers, numberOfHiddenNeurons, numberOfOutputNeurons, NeuralNetwork_HiddenWeights, NeuralNetwork_OutputWeights);
+	NeuralNetwork_CopyFileToArrays("testFiles\\OutputSequence.txt", numberOfInputNeurons, numberOfHiddenLayers, numberOfHiddenNeurons, numberOfOutputNeurons, NeuralNetwork_HiddenWeights, NeuralNetwork_OutputWeights);
 
 	for (int i = 0; i < sizeOfHiddenWeightsArray; i++) {
 		if (NeuralNetwork_HiddenWeights[i] != i) {

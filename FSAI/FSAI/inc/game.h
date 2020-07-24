@@ -38,10 +38,13 @@ public:
 	int getH();
 	int getW();
 	void checkForCollision();
-	void setStatus(bool carRunning);
+	void setRunningStatus(bool carRunning);
 	bool running();
 	void setRunningTime();
+	void resetRunningTime();
 	Uint32 getRunningTime();
+
+	NeuralNetwork* NeuralNetwork;
 
 private:
 	int xpos, ypos, height, width;
@@ -52,7 +55,7 @@ private:
 	SDL_Texture* objTexture;
 	SDL_Rect srcRect, destRect;
 
-	NeuralNetwork* NeuralNetwork;
+	
 	double NeuralNetwork_InputArray[7];
 	double NeuralNetwork_OutputArray[2];
 };
@@ -95,6 +98,8 @@ int getLowerObstacleX();
 int getLowerObstacleY();
 
 int getLowerObstacleW();
+
+void generateRandomArray(double* Array, int size);
 
 void startNewGame();
 

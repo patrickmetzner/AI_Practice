@@ -4,12 +4,13 @@
 #include "SDL_image.h" 
 #include "game.h"
 #include "NeuralNetwork.h"
+#pragma warning(disable : 4996)	// fopen and sprintf
 
 #define windowHeight			650
 #define windowWidth				500
 
 #define numberOfInputNeurons	(7 + BIAS)
-#define numberOfHiddenLayers	(1)
+#define numberOfHiddenLayers	(2)
 #define numberOfHiddenNeurons	(4 + BIAS)
 #define numberOfOutputNeurons	(2)
 #define numberOfCars			1000
@@ -25,6 +26,10 @@ double NeuralNetwork_HiddenWeights[((numberOfHiddenLayers - 1) * numberOfHiddenN
 double NeuralNetwork_OutputWeights[numberOfOutputNeurons * numberOfHiddenNeurons];
 
 int numberOfCrashedCars = 0;
+int numberOfCrashedCars_old = 0;
+
+Uint32 trainingClock = 0;
+Uint32 endOfLastTrainingSession = 0;
 
 int main(int argc, char* argv[]) {
 	srand((int)time(0));
@@ -36,6 +41,7 @@ int main(int argc, char* argv[]) {
 
 	game = new Game();
 	game->init("FSAI", windowWidth, windowHeight, false);
+	endOfLastTrainingSession = SDL_GetTicks();
 
 	while (game->running()) {
 		frameStart = SDL_GetTicks();
@@ -44,13 +50,18 @@ int main(int argc, char* argv[]) {
 		game->update();
 		game->render();
 
-		if (numberOfCrashedCars == numberOfCars) {
+		if (numberOfCrashedCars == numberOfCars || trainingClock > 1200000) {
 			startNewGame();
+			numberOfCrashedCars_old = 0;
+			endOfLastTrainingSession = SDL_GetTicks();
 		}
 
 		frameTime = SDL_GetTicks() - frameStart;
 		if (frameDelay > frameTime) {
 			SDL_Delay(frameDelay - frameTime);
+		}
+		else {
+			std::cout << "Time Out!\n";
 		}
 	}
 
@@ -134,8 +145,9 @@ void Game::handleEvents()
 
 void Game::update()
 {
+	trainingClock = SDL_GetTicks() - endOfLastTrainingSession;
+
 	numberOfCrashedCars = 0;
-	static int numberOfCrashedCars_old = 0;
 	for (int i = 0; i < numberOfCars; i++) {
 		car[i]->checkForCollision();
 		if (car[i]->running() == true) {
@@ -149,7 +161,7 @@ void Game::update()
 
 	if (numberOfCrashedCars > numberOfCrashedCars_old) {
 		numberOfCrashedCars_old = numberOfCrashedCars;
-		std::cout << "Time = " << SDL_GetTicks() << "\t || \t" << numberOfCrashedCars << " Cars crashed.\n";
+		std::cout << "Time = " << trainingClock << "\t || \t" << numberOfCrashedCars << " Cars crashed.\n";
 	}
 
 	obstacle1->Update();
@@ -298,7 +310,7 @@ void CarObject::checkForCollision() {
 	}
 }
 
-void CarObject::setStatus(bool carRunning) {
+void CarObject::setRunningStatus(bool carRunning) {
 	isRunning = carRunning;
 }
 
@@ -307,7 +319,11 @@ bool CarObject::running() {
 }
 
 void CarObject::setRunningTime() {
-	runningTime = SDL_GetTicks();
+	runningTime = trainingClock;
+}
+
+void CarObject::resetRunningTime() {
+	runningTime = 0;
 }
 
 Uint32 CarObject::getRunningTime() {
@@ -467,6 +483,12 @@ int getLowerObstacleW() {
 	return lowerObstacleW;
 }
 
+void generateRandomArray(double* Array, int size) {
+	for (int i = 0; i < size; i++) {
+		Array[i] = (double)(rand() % 2000 - (double)1000) / 1000;
+	}
+}
+
 void startNewGame() {
 	int bestCarIndex = 0;
 	Uint32 bestRunningTime = 0;
@@ -477,6 +499,39 @@ void startNewGame() {
 			bestCarIndex = i;
 		}
 	}
+
+	NeuralNetwork_CopyNeuralNetworkToArrays(car[bestCarIndex]->NeuralNetwork, NeuralNetwork_HiddenWeights, NeuralNetwork_OutputWeights);
+	char fileName[1000];
+	sprintf(fileName, "trainingFiles\\%07d - [%.4f][%d, %d, %d, %d].txt", 
+		car[bestCarIndex]->getRunningTime(), learningRate, (numberOfInputNeurons - BIAS), numberOfHiddenLayers, (numberOfHiddenNeurons - BIAS), numberOfOutputNeurons);
+	NeuralNetwork_CopyArraysToFile(fileName, numberOfInputNeurons, numberOfHiddenLayers, numberOfHiddenNeurons, numberOfOutputNeurons, NeuralNetwork_HiddenWeights, NeuralNetwork_OutputWeights);
+
+	for (int i = 0; i < numberOfCars; i++) {
+		NeuralNetwork_CopyArraysToNeuralNetwork(car[i]->NeuralNetwork, NeuralNetwork_HiddenWeights, NeuralNetwork_OutputWeights);
+		car[i]->setRunningStatus(true);
+		car[i]->resetRunningTime();
+	}
+
+	int sizeOfHiddenWeightsArray = ((numberOfHiddenLayers - 1) * numberOfHiddenNeurons * numberOfHiddenNeurons) + numberOfInputNeurons * numberOfHiddenNeurons;
+	int sizeOfOutputWeightsArray = numberOfOutputNeurons * numberOfHiddenNeurons;
+	int sizeOfNeuralNetwork = sizeOfHiddenWeightsArray + sizeOfOutputWeightsArray;
+	{
+		int numberOfMutations = ceil(learningRate * (double)(sizeOfNeuralNetwork));
+		std::cout << "Number Of Mutations: \t" << numberOfMutations << "\n";
+	}
+	
+	for (int i = 1; i < (int)(numberOfCars/2); i++) {
+		NeuralNetwork_RandomMutations(car[i]->NeuralNetwork, NeuralNetwork_HiddenWeights, NeuralNetwork_OutputWeights);
+	}
+
+	for (int i = (int)(numberOfCars / 2) + 1; i < numberOfCars; i++) {
+		generateRandomArray(NeuralNetwork_HiddenWeights, sizeOfHiddenWeightsArray);
+		generateRandomArray(NeuralNetwork_OutputWeights, sizeOfOutputWeightsArray);
+		NeuralNetwork_RandomMutations(car[i]->NeuralNetwork, NeuralNetwork_HiddenWeights, NeuralNetwork_OutputWeights);
+	}
+
+	obstacle1->setY(windowHeight / 2);
+	obstacle2->setY(0);
 }
 
 //////////////////////////////////

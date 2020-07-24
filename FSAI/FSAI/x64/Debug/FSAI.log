@@ -1,3 +1,4 @@
 ﻿  Using triplet "x64-windows" from "C:\Development\vcpkg-master\vcpkg-master\installed\x64-windows\"
   main.cpp
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(519,25): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
   FSAI.vcxproj -> C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\x64\Debug\FSAI.exe

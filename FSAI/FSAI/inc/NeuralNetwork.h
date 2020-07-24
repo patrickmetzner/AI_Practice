@@ -1,6 +1,6 @@
 #pragma once
 
-#define learningRate	(0.1)
+#define learningRate	(0.001)
 #define initialWeight	(1.0) 
 #define BIAS			1
 

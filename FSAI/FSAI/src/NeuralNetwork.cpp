@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstdlib>				// malloc & free
 #include <fstream>				// read and create files
+#pragma warning(disable : 4996)	// fopen and sprintf
 
 
 double relu(double X) {
@@ -138,6 +139,9 @@ void NeuralNetwork_CopyFileToArrays(const char* fileName, const int numberOfInpu
 
 void NeuralNetwork_CopyArraysToFile(const char* fileName, const int numberOfInputNeurons, const int numberOfHiddenLayers, const int numberOfHiddenNeurons, const int numberOfOutputNeurons,
 	double* NeuralNetwork_HiddenWeights, double* NeuralNetwork_OutputWeights) {
+
+	FILE* temp = fopen(fileName, "w");
+	fclose(temp);
 
 	std::ofstream dataFile(fileName);
 
