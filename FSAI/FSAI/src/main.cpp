@@ -5,47 +5,48 @@
 #include "game.h"
 #include "NeuralNetwork.h"
 
-#define windowHeight	650
-#define windowWidth		500
+#define windowHeight			650
+#define windowWidth				500
+
+#define numberOfInputNeurons	(7 + BIAS)
+#define numberOfHiddenLayers	(1)
+#define numberOfHiddenNeurons	(4 + BIAS)
+#define numberOfOutputNeurons	(2)
+#define numberOfCars			1000
 
 Game* game = nullptr;
-CarObject* car;
+CarObject* car[numberOfCars];
 ObstacleObject* obstacle1;
 ObstacleObject* obstacle2;
 SDL_Renderer* Game::renderer = nullptr;
 const Uint8* KeyboardState;
 
+double NeuralNetwork_HiddenWeights[((numberOfHiddenLayers - 1) * numberOfHiddenNeurons * numberOfHiddenNeurons) + numberOfInputNeurons * numberOfHiddenNeurons];
+double NeuralNetwork_OutputWeights[numberOfOutputNeurons * numberOfHiddenNeurons];
+
+int numberOfCrashedCars = 0;
 
 int main(int argc, char* argv[]) {
 	srand((int)time(0));
 
-	const int numberOfInputNeurons = 7 + BIAS;
-	const int numberOfHiddenLayers = 2;
-	const int numberOfHiddenNeurons = 4 + BIAS;
-	const int numberOfOutputNeurons = 2;
-	double NeuralNetwork_HiddenWeights[((numberOfHiddenLayers - 1) * numberOfHiddenNeurons * numberOfHiddenNeurons) + numberOfInputNeurons * numberOfHiddenNeurons];
-	double NeuralNetwork_OutputWeights[numberOfOutputNeurons * numberOfHiddenNeurons];
-
 	const int FPS = 60;
 	const int frameDelay = 1000 / FPS;
-
 	Uint32 frameStart;
 	int frameTime;
 
 	game = new Game();
-
 	game->init("FSAI", windowWidth, windowHeight, false);
 
 	while (game->running()) {
 		frameStart = SDL_GetTicks();
 
-		//controlarCarros();
-		
-		//verificarFimDePartida();
-
 		game->handleEvents();
 		game->update();
 		game->render();
+
+		if (numberOfCrashedCars == numberOfCars) {
+			startNewGame();
+		}
 
 		frameTime = SDL_GetTicks() - frameStart;
 		if (frameDelay > frameTime) {
@@ -107,7 +108,10 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 		isRunning = false;
 	}
 
-	car = new CarObject("images/car.png", 180, 90);
+	for (int i = 0; i < numberOfCars; i++) {
+		car[i] = new CarObject("images/car.png", 180, 90);
+	}
+
 	obstacle1 = new ObstacleObject("images/obstacle.png", 20, rand() % 100 + 100);
 	obstacle1->setY(windowHeight / 2);
 	obstacle2 = new ObstacleObject("images/obstacle.png", 20, rand() % 100 + 100);
@@ -130,13 +134,24 @@ void Game::handleEvents()
 
 void Game::update()
 {
-	car->checkForCollision();
-	if (car->running() == false) {
-		SDL_Delay(1000);
-		car->setStatus(true);
+	numberOfCrashedCars = 0;
+	static int numberOfCrashedCars_old = 0;
+	for (int i = 0; i < numberOfCars; i++) {
+		car[i]->checkForCollision();
+		if (car[i]->running() == true) {
+			car[i]->Update();
+			car[i]->setRunningTime();
+		}
+		else {
+			numberOfCrashedCars++;
+		}
 	}
 
-	car->Update();
+	if (numberOfCrashedCars > numberOfCrashedCars_old) {
+		numberOfCrashedCars_old = numberOfCrashedCars;
+		std::cout << "Time = " << SDL_GetTicks() << "\t || \t" << numberOfCrashedCars << " Cars crashed.\n";
+	}
+
 	obstacle1->Update();
 	obstacle2->Update();
 
@@ -159,7 +174,12 @@ void Game::render()
 {
 	SDL_RenderClear(renderer);
 
-	car->Render();
+	for (int i = 0; i < numberOfCars; i++) {
+		if (car[i]->running() == true) {
+			car[i]->Render();
+		}
+	}
+
 	obstacle1->Render();
 	obstacle2->Render();
 
@@ -191,11 +211,12 @@ bool Game::running()
 CarObject::CarObject(const char* texturesheet, int h, int w) {
 	objTexture = TextureManager::LoadTexture(texturesheet);
 
-	xpos = windowWidth / 2 - w / 2;
-	ypos = windowHeight - h;
 	height = h;
 	width = w;
+	xpos = rand() % (windowWidth - width);
+	ypos = windowHeight - h;
 
+	NeuralNetwork = NeuralNetwork_CreateNeuralNetwork(numberOfInputNeurons, numberOfHiddenLayers, numberOfHiddenNeurons, numberOfOutputNeurons);
 }
 
 CarObject::~CarObject() {
@@ -203,12 +224,35 @@ CarObject::~CarObject() {
 }
 
 void CarObject::Update() {
-	KeyboardState = SDL_GetKeyboardState(NULL);
-	if (KeyboardState[SDL_SCANCODE_LEFT] && xpos >= 0)
-		xpos -= 5;
+	if (isAutonomous == false) {
+		KeyboardState = SDL_GetKeyboardState(NULL);
+		if (KeyboardState[SDL_SCANCODE_LEFT] && xpos >= 0) {
+			xpos -= 5;
+		}
+			
+		if (KeyboardState[SDL_SCANCODE_RIGHT] && xpos <= windowWidth - width) {
+			xpos += 5;
+		}
+	}
+	else {
+		NeuralNetwork_InputArray[0] = (double)getUpperObstacleY();
+		NeuralNetwork_InputArray[1] = (double)getUpperObstacleX();
+		NeuralNetwork_InputArray[2] = (double)windowWidth - (double)getUpperObstacleX() - (double)getUpperObstacleW();
+		NeuralNetwork_InputArray[3] = (double)getLowerObstacleY();
+		NeuralNetwork_InputArray[4] = (double)getLowerObstacleX();
+		NeuralNetwork_InputArray[5] = (double)windowWidth - (double)getLowerObstacleX() - (double)getLowerObstacleW();
+		NeuralNetwork_InputArray[6] = (double)xpos;
 
-	if (KeyboardState[SDL_SCANCODE_RIGHT] && xpos <= windowWidth - width)
-		xpos += 5;
+		NeuralNetwork_CalculateOutput(NeuralNetwork, NeuralNetwork_InputArray, NeuralNetwork_OutputArray);
+		if (NeuralNetwork_OutputArray[0] > 0 && xpos >= 0) {
+			xpos -= 5;
+		}
+
+		if (NeuralNetwork_OutputArray[1] > 0 && xpos <= windowWidth - width) {
+			xpos += 5;
+		}
+	}
+	
 
 	srcRect.h = height;
 	srcRect.w = width;
@@ -262,8 +306,12 @@ bool CarObject::running() {
 	return isRunning;
 }
 
-Uint32 CarObject::getCollisionTime() {
-	return collisionTime;
+void CarObject::setRunningTime() {
+	runningTime = SDL_GetTicks();
+}
+
+Uint32 CarObject::getRunningTime() {
+	return runningTime;
 }
 
 
@@ -277,10 +325,10 @@ Uint32 CarObject::getCollisionTime() {
 ObstacleObject::ObstacleObject(const char* texturesheet, int h, int w) {
 	objTexture = TextureManager::LoadTexture(texturesheet);
 
-	xpos = rand() % 400;
-	ypos = 0;
 	height = h;
 	width = w;
+	xpos = rand() % (windowWidth - width);
+	ypos = 0;	
 
 	std::cout << "Obstacle created" << std::endl;
 }
@@ -419,7 +467,17 @@ int getLowerObstacleW() {
 	return lowerObstacleW;
 }
 
+void startNewGame() {
+	int bestCarIndex = 0;
+	Uint32 bestRunningTime = 0;
 
+	for (int i = 0; i < numberOfCars; i++) {
+		if (car[i]->getRunningTime() > bestRunningTime) {
+			bestRunningTime = car[i]->getRunningTime();
+			bestCarIndex = i;
+		}
+	}
+}
 
 //////////////////////////////////
 //								//

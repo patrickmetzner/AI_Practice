@@ -4,10 +4,10 @@
 #include <time.h>				// time(0)
 #include <fstream>
 
-const int numberOfInputNeurons = 6 + BIAS;
-const int numberOfHiddenLayers = 1;
-const int numberOfHiddenNeurons = 4 + BIAS;
-const int numberOfOutputNeurons = 2;
+#define numberOfInputNeurons	(6 + BIAS)
+#define numberOfHiddenLayers	(1)
+#define numberOfHiddenNeurons	(4 + BIAS)
+#define numberOfOutputNeurons	(2)
 
 int sizeOfHiddenWeightsArray = ((numberOfHiddenLayers - 1) * numberOfHiddenNeurons * numberOfHiddenNeurons) + numberOfInputNeurons * numberOfHiddenNeurons;
 int sizeOfOutputWeightsArray = numberOfOutputNeurons * numberOfHiddenNeurons;

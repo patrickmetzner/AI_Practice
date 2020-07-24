@@ -1,5 +1,6 @@
 #pragma once
 
+#include "NeuralNetwork.h"
 
 class Game
 {
@@ -39,16 +40,21 @@ public:
 	void checkForCollision();
 	void setStatus(bool carRunning);
 	bool running();
-	Uint32 getCollisionTime();
+	void setRunningTime();
+	Uint32 getRunningTime();
 
 private:
 	int xpos, ypos, height, width;
 	bool isRunning = true;
-	Uint32 collisionTime;
+	bool isAutonomous = true;
+	Uint32 runningTime = 0;
 
 	SDL_Texture* objTexture;
 	SDL_Rect srcRect, destRect;
 
+	NeuralNetwork* NeuralNetwork;
+	double NeuralNetwork_InputArray[7];
+	double NeuralNetwork_OutputArray[2];
 };
 
 
@@ -78,6 +84,19 @@ private:
 
 };
 
+int getUpperObstacleX();
+
+int getUpperObstacleY();
+
+int getUpperObstacleW();
+
+int getLowerObstacleX();
+
+int getLowerObstacleY();
+
+int getLowerObstacleW();
+
+void startNewGame();
 
 class TextureManager {
 public:
