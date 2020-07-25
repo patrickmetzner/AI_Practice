@@ -1,0 +1,8 @@
+﻿  Using triplet "x64-windows" from "C:\Development\vcpkg-master\vcpkg-master\installed\x64-windows\"
+  pch.cpp
+  NeuralNetwork.cpp
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI - Milestone 1\FSAI\src\NeuralNetwork.cpp(316,24): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  test.cpp
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI - Milestone 1\FSAI_GoogleTest\test.cpp(109,24): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
+  FSAI_GoogleTest.vcxproj -> C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI - Milestone 1\x64\Debug\FSAI_GoogleTest.exe

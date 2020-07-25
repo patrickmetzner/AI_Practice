@@ -1,0 +1,2 @@
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI_GoogleTest\x64\Debug\FSAI_GoogleTest.vcxproj.CopyComplete
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI - Milestone 1\FSAI_GoogleTest\x64\Debug\FSAI_GoogleTest.vcxproj.CopyComplete
