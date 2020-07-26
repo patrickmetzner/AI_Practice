@@ -19,7 +19,7 @@ The chosen racetrack is **ECPA** (Piracicaba-SP-BR), used for the endurance even
 
 This project will be divided into **5 Milestones**:
 
-**Milestone 1:** [Ready on July 25th, 2020]. 
+## Milestone 1: [Ready on July 25th, 2020]. 
 
 Simple "game", with minimalistic graphics, where a car should drive, **controlled by AI**, on a straight road, avoiding obstacles placed randomly through the road. 
 
@@ -30,13 +30,21 @@ Each car has a **Multilayer Neural Network** with **7** (+1 BIAS) input neurons,
 <img src="https://github.com/patrickmetzner/AI_Practice/blob/master/FSAI%20-%20Milestone%201/FSAI/images/Milestone1.PNG" width=200>
 
 
-**Milestone 2:** Goal: Create a simple "game", with minimalistic graphics, where a car should drive, **controlled by AI**, around **simple tracks** (circular, oval and rectangular), **avoiding hitting the walls**. This milestone is inspired by [this video](https://www.youtube.com/watch?v=gnfkfUQvKDw&list=PLPWikzi38KIwwQdolewJb_Ei1NAb4BSFg&index=3).
+## Milestone 2:
 
-**Milestone 3:** Goal: Recreate the "game" from the previous milestone, but implement the **ECPA racetrack** instead of the simple tracks used previously.
+Goal: Create a simple "game", with minimalistic graphics, where a car should drive, **controlled by AI**, around **simple tracks** (circular, oval and rectangular), **avoiding hitting the walls**. This milestone is inspired by [this video](https://www.youtube.com/watch?v=gnfkfUQvKDw&list=PLPWikzi38KIwwQdolewJb_Ei1NAb4BSFg&index=3).
 
-**Milestone 4:** Goal: Recreate the "game" from the previous milestone, but **implement physics** to make the modeled car behave like a more realistic car. The idea is to implement some kind of system like the one found at the **[SimulinkPractice repository](https://github.com/patrickmetzner/SimulinkPractice)**.
+## Milestone 3:
 
-**Milestone 5:** Goal: Optimize the code to get a **neural network** that can find the **fastest way** around the racetrack after physics are implemented. The expectation is that the **AI controlled car** will choose to follow what it is known as **"racing line"**, trying to minimize the radius of the turns, so it can carry more speed into the corners. 
+Goal: Recreate the "game" from the previous milestone, but implement the **ECPA racetrack** instead of the simple tracks used previously.
+
+## Milestone 4: 
+
+Goal: Recreate the "game" from the previous milestone, but **implement physics** to make the modeled car behave like a more realistic car. The idea is to implement some kind of system like the one found at the **[SimulinkPractice repository](https://github.com/patrickmetzner/SimulinkPractice)**.
+
+## Milestone 5: 
+
+Goal: Optimize the code to get a **neural network** that can find the **fastest way** around the racetrack after physics are implemented. The expectation is that the **AI controlled car** will choose to follow what it is known as **"racing line"**, trying to minimize the radius of the turns, so it can carry more speed into the corners. 
 
 
 
