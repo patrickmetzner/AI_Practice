@@ -1,7 +1,10 @@
 # AI_Practice
 
 **Latest running version: FSAI - Milestone 1** (described below).
+
 To run the project, download the folder **FSAI - Milestone 1** and run **FSAI - Milestone 1\FSAI\FSAI** application file.
+
+![Preview-Screens](https://github.com/patrickmetzner/AI_Practice/blob/master/FSAI%20-%20Milestone%201/FSAI/images/Milestone1.PNG)
 
 This is a project that started in 14/06/2020 with the intention of learning more about **AI** (artificial intelligence) and **neural networks**.
 
@@ -20,7 +23,7 @@ The chosen racetrack is **ECPA** (Piracicaba-SP-BR), used for the endurance even
 
 This project will be divided into **5 Milestones**:
 
-**Milestone 1:** Create a simple "game", with minimalistic graphics, where a car should drive, **controlled by AI**, in a **straight road, avoiding obstacles** (rectangles) placed randomly through the road. 
+**Milestone 1:** [Ready on July 25th, 2020] Create a simple "game", with minimalistic graphics, where a car should drive, **controlled by AI**, in a **straight road, avoiding obstacles** (rectangles) placed randomly through the road. 
 
 **Milestone 2:** Create a simple "game", with minimalistic graphics, where a car should drive, **controlled by AI**, around **simple tracks** (circular, oval and rectangular), **avoiding hitting the walls**. This milestone is inspired by [this video](https://www.youtube.com/watch?v=gnfkfUQvKDw&list=PLPWikzi38KIwwQdolewJb_Ei1NAb4BSFg&index=3).
 
