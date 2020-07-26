@@ -4,7 +4,9 @@
 
 To run the project, download the folder **FSAI - Milestone 1** and run **FSAI - Milestone 1\FSAI\FSAI** application file.
 
-![Preview-Screens|500x680,20%](https://github.com/patrickmetzner/AI_Practice/blob/master/FSAI%20-%20Milestone%201/FSAI/images/Milestone1.PNG)
+<img align="right" src="https://github.com/patrickmetzner/AI_Practice/blob/master/FSAI%20-%20Milestone%201/FSAI/images/Milestone1.PNG" width=250>
+
+![Preview-Screens](https://github.com/patrickmetzner/AI_Practice/blob/master/FSAI%20-%20Milestone%201/FSAI/images/Milestone1.PNG)
 
 This is a project that started in 14/06/2020 with the intention of learning more about **AI** (artificial intelligence) and **neural networks**.
 
