@@ -1,6 +1,6 @@
 # AI_Practice
 
-**Latest running version: FSAI - Milestone 1** (described below)
+**Latest running version: FSAI - Milestone 1** (described below).
 To run the project, download the folder **FSAI - Milestone 1** and run **FSAI - Milestone 1\FSAI\FSAI** application file.
 
 This is a project that started in 14/06/2020 with the intention of learning more about **AI** (artificial intelligence) and **neural networks**.
