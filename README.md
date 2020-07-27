@@ -23,11 +23,11 @@ This project will be divided into **5 Milestones**:
 
 Simple "game", with minimalistic graphics, where a car should drive, **controlled by AI**, on a straight road, avoiding obstacles placed randomly through the road. 
 
-To run the project, download the folder **FSAI - Milestone 1** and run the **FSAI - Milestone 1\FSAI\FSAI** application file. The cars will start to train their **Neural Network** to avoid the obstacles. The weights of the best **Neural Network** of each training cycle will be saved in a .txt file in the **FSAI - Milestone 1\FSAI\trainingFiles** folder. 
+To run the project, download the folder **FSAI - Milestone 1** and run the **FSAI - Milestone 1\FSAI\FSAI** application file. The cars will start to train their **Neural Network** to avoid the obstacles. The weights of the best **Neural Network** of each training cycle will be saved in a .txt file in the **FSAI - Milestone 1\FSAI\trainingFiles** folder. Two GIFs can be found below, showing the beginning and the end of the **Neural Network** training.  
 
 Each car has a **Multilayer Neural Network** with **7** (+1 BIAS) input neurons, **2** hidden layers with **4** (+1 BIAS) neurons each hidden layer and **2** output neurons.
 
-<img src="https://github.com/patrickmetzner/AI_Practice/blob/master/FSAI%20-%20Milestone%201/FSAI/images/Milestone1.PNG" width=200>
+<img src="https://github.com/patrickmetzner/AI_Practice/blob/master/FSAI%20-%20Milestone%201/FSAI/images/FSAI_Training.gif" width=200>    <img src="https://github.com/patrickmetzner/AI_Practice/blob/master/FSAI%20-%20Milestone%201/FSAI/images/FSAI_Trained.gif" width=200>
 
 
 ## Milestone 2:
