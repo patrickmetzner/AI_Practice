@@ -4,10 +4,6 @@
 
 This is a project that started in 14/06/2020 with the intention of learning more about **AI** (artificial intelligence) and **neural networks**.
 
-**Author**: 	Patrick Metzner Morais.
-
-**Partner**: 	Maria Claudia Regio.
-
 
 # About the project
 
