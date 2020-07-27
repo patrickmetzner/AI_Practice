@@ -27,7 +27,7 @@ To run the project, download the folder **FSAI - Milestone 1** and run the **FSA
 
 Each car has a **Multilayer Neural Network** with **7** (+1 BIAS) input neurons, **2** hidden layers with **4** (+1 BIAS) neurons each hidden layer and **2** output neurons.
 
-		<img src="https://github.com/patrickmetzner/AI_Practice/blob/master/FSAI%20-%20Milestone%201/FSAI/images/FSAI_Training.gif" width=200>			<img src="https://github.com/patrickmetzner/AI_Practice/blob/master/FSAI%20-%20Milestone%201/FSAI/images/FSAI_Trained.gif" width=200>
+<img src="https://github.com/patrickmetzner/AI_Practice/blob/master/FSAI%20-%20Milestone%201/FSAI/images/FSAI_Training.gif" width=200>			<img src="https://github.com/patrickmetzner/AI_Practice/blob/master/FSAI%20-%20Milestone%201/FSAI/images/FSAI_Trained.gif" width=200>
 
 
 ## Milestone 2:
