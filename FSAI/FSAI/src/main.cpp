@@ -4,21 +4,20 @@
 #include "SDL_image.h" 
 #include "game.h"
 #include "NeuralNetwork.h"
+#include <math.h>
 #pragma warning(disable : 4996)	// fopen and sprintf
 
 #define windowHeight			650
-#define windowWidth				500
+#define windowWidth				650
 
 #define numberOfInputNeurons	(7 + BIAS)
 #define numberOfHiddenLayers	(2)
 #define numberOfHiddenNeurons	(4 + BIAS)
 #define numberOfOutputNeurons	(2)
-#define numberOfCars			1000
+#define numberOfCars			1
 
 Game* game = nullptr;
 CarObject* car[numberOfCars];
-ObstacleObject* obstacle1;
-ObstacleObject* obstacle2;
 SDL_Renderer* Game::renderer = nullptr;
 const Uint8* KeyboardState;
 
@@ -51,6 +50,7 @@ int main(int argc, char* argv[]) {
 		game->update();
 		game->render();
 
+		/*
 		KeyboardState = SDL_GetKeyboardState(NULL);
 		if (numberOfCrashedCars >= (numberOfCars - 1) || (KeyboardState[SDL_SCANCODE_N])) {
 			startNewGame();
@@ -64,6 +64,7 @@ int main(int argc, char* argv[]) {
 			std::cout << "Time = " << (double)trainingClock / 1000 << "\n";
 		}
 		counter_PrintTime++;
+		*/
 
 		frameTime = SDL_GetTicks() - frameStart;
 		if (frameDelay > frameTime) {
@@ -131,11 +132,6 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 	for (int i = 0; i < numberOfCars; i++) {
 		car[i] = new CarObject("images/car.png", 180, 90);
 	}
-
-	obstacle1 = new ObstacleObject("images/obstacle.png", 20, rand() % 100 + 100);
-	obstacle1->setY(windowHeight / 2);
-	obstacle2 = new ObstacleObject("images/obstacle.png", 20, rand() % 100 + 100);
-
 }
 
 void Game::handleEvents()
@@ -172,22 +168,6 @@ void Game::update()
 		std::cout << "Time = " << (double)trainingClock/1000 << "\t || \t" << numberOfCrashedCars << " Cars crashed.\n";
 	}
 
-	obstacle1->Update();
-	obstacle2->Update();
-
-	if (obstacle1->getY() >= windowHeight) {
-		obstacle1->setY(0);
-		obstacle1->setW(rand() % 100 + 100);
-		obstacle1->setX(rand() % (windowWidth - obstacle1->getW()));
-	}
-
-	if (obstacle2->getY() >= windowHeight) {
-		obstacle2->setY(0);
-		obstacle2->setW(rand() % 100 + 100);
-		obstacle2->setX(rand() % (windowWidth - obstacle2->getW()));
-	}
-
-	levelCounter++;
 }
 
 void Game::render()
@@ -199,9 +179,6 @@ void Game::render()
 			car[i]->Render();
 		}
 	}
-
-	obstacle1->Render();
-	obstacle2->Render();
 
 	SDL_RenderPresent(renderer);
 }
@@ -233,8 +210,21 @@ CarObject::CarObject(const char* texturesheet, int h, int w) {
 
 	height = h;
 	width = w;
-	xpos = rand() % (windowWidth - width);
+	xpos = windowWidth/2 - width/2;
 	ypos = windowHeight - h;
+
+	imageRotationPoint.x = width / 2;
+	imageRotationPoint.y = height * 3/4;
+
+	srcRect.h = height;
+	srcRect.w = width;
+	srcRect.x = 0;
+	srcRect.y = 0;
+
+	destRect.x = xpos;
+	destRect.y = ypos;
+	destRect.h = srcRect.h;
+	destRect.w = srcRect.w;
 
 	NeuralNetwork = NeuralNetwork_CreateNeuralNetwork(numberOfInputNeurons, numberOfHiddenLayers, numberOfHiddenNeurons, numberOfOutputNeurons);
 }
@@ -246,17 +236,34 @@ CarObject::~CarObject() {
 void CarObject::Update() {
 	runningTime = trainingClock;
 
+	moveCar();
+
+	checkForCollision();
+}
+
+void CarObject::moveCar() {
 	if (isAutonomous == false) {
 		KeyboardState = SDL_GetKeyboardState(NULL);
-		if (KeyboardState[SDL_SCANCODE_LEFT] && xpos >= 0) {
-			xpos -= 5;
+		if (KeyboardState[SDL_SCANCODE_LEFT] && (KeyboardState[SDL_SCANCODE_UP] || KeyboardState[SDL_SCANCODE_DOWN])) {
+			rotationAngle -= 5;
 		}
-			
-		if (KeyboardState[SDL_SCANCODE_RIGHT] && xpos <= windowWidth - width) {
-			xpos += 5;
+
+		if (KeyboardState[SDL_SCANCODE_RIGHT] && (KeyboardState[SDL_SCANCODE_UP] || KeyboardState[SDL_SCANCODE_DOWN])) {
+			rotationAngle += 5;
+		}
+
+		if (KeyboardState[SDL_SCANCODE_UP]) {
+			xpos += 10 * sin(rotationAngle * M_PI / 180);
+			ypos -= 10 * cos(rotationAngle * M_PI / 180);
+		}
+
+		if (KeyboardState[SDL_SCANCODE_DOWN]) {
+			xpos -= 5 * sin(rotationAngle * M_PI / 180);
+			ypos += 5 * cos(rotationAngle * M_PI / 180);
 		}
 	}
 	else {
+		/*
 		NeuralNetwork_InputArray[0] = (double)getUpperObstacleY();
 		NeuralNetwork_InputArray[1] = (double)getUpperObstacleX();
 		NeuralNetwork_InputArray[2] = (double)windowWidth - (double)getUpperObstacleX() - (double)getUpperObstacleW();
@@ -273,22 +280,65 @@ void CarObject::Update() {
 		if (NeuralNetwork_OutputArray[1] > 0 && xpos <= windowWidth - width) {
 			xpos += 5;
 		}
+		*/
 	}
-	
-
-	srcRect.h = height;
-	srcRect.w = width;
-	srcRect.x = 0;
-	srcRect.y = 0;
 
 	destRect.x = xpos;
 	destRect.y = ypos;
-	destRect.h = srcRect.h;
-	destRect.w = srcRect.w;
+}
+
+void CarObject::checkForCollision() {
+	carCenter.x = xpos + imageRotationPoint.x + (imageRotationPoint.y - height / 2) * sin(rotationAngle * M_PI / 180);
+	carCenter.y = ypos + imageRotationPoint.y - (imageRotationPoint.y - height / 2) * cos(rotationAngle * M_PI / 180);
+
+	front.x = carCenter.x + (height / 2) * sin(rotationAngle * M_PI / 180);
+	front.y = carCenter.y - (height / 2) * cos(rotationAngle * M_PI / 180);
+
+	rear.x = carCenter.x - (height / 2) * sin(rotationAngle * M_PI / 180);
+	rear.y = carCenter.y + (height / 2) * cos(rotationAngle * M_PI / 180);
+
+	left.x = carCenter.x - (width / 2) * cos(rotationAngle * M_PI / 180);
+	left.y = carCenter.y - (width / 2) * sin(rotationAngle * M_PI / 180);
+
+	right.x = carCenter.x + (width / 2) * cos(rotationAngle * M_PI / 180);
+	right.y = carCenter.y + (width / 2) * sin(rotationAngle * M_PI / 180);
+
+	double frontLeftAngle = (rotationAngle - (atan((double)((double)width / (double)height)) * 180 / M_PI));
+	frontLeft.x = carCenter.x + hypot((height / 2), (width / 2)) * sin(frontLeftAngle * M_PI / 180);
+	frontLeft.y = carCenter.y - hypot((height / 2), (width / 2)) * cos(frontLeftAngle * M_PI / 180);
+
+	double frontRightAngle = (rotationAngle + (atan((double)((double)width / (double)height)) * 180 / M_PI));
+	frontRight.x = carCenter.x + hypot((height / 2), (width / 2)) * sin(frontRightAngle * M_PI / 180);
+	frontRight.y = carCenter.y - hypot((height / 2), (width / 2)) * cos(frontRightAngle * M_PI / 180);
+
+	double rearLeftAngle = (rotationAngle + (atan((double)((double)width / (double)height)) * 180 / M_PI));
+	rearLeft.x = carCenter.x - hypot((height / 2), (width / 2)) * sin(rearLeftAngle * M_PI / 180);
+	rearLeft.y = carCenter.y + hypot((height / 2), (width / 2)) * cos(rearLeftAngle * M_PI / 180);
+
+	double rearRightAngle = (rotationAngle - (atan((double)((double)width / (double)height)) * 180 / M_PI));
+	rearRight.x = carCenter.x - hypot((height / 2), (width / 2)) * sin(rearRightAngle * M_PI / 180);
+	rearRight.y = carCenter.y + hypot((height / 2), (width / 2)) * cos(rearRightAngle * M_PI / 180);
+	
+	if (
+		front.x < 0 || front.x > windowWidth || front.y < 0 || front.y > windowHeight ||
+		rear.x < 0 || rear.x > windowWidth || rear.y < 0 || rear.y > windowHeight ||
+		left.x < 0 || left.x > windowWidth || left.y < 0 || left.y > windowHeight ||
+		right.x < 0 || right.x > windowWidth || right.y < 0 || right.y > windowHeight ||
+		frontLeft.x < 0 || frontLeft.x > windowWidth || frontLeft.y < 0 || frontLeft.y > windowHeight ||
+		frontRight.x < 0 || frontRight.x > windowWidth || frontRight.y < 0 || frontRight.y > windowHeight ||
+		rearLeft.x < 0 || rearLeft.x > windowWidth || rearLeft.y < 0 || rearLeft.y > windowHeight ||
+		rearRight.x < 0 || rearRight.x > windowWidth || rearRight.y < 0 || rearRight.y > windowHeight
+		) 
+	{
+		std::cout << "Collision!\n";
+	}
+	else {
+		std::cout << "No collision!\n";
+	}
 }
 
 void CarObject::Render() {
-	SDL_RenderCopy(Game::renderer, objTexture, &srcRect, &destRect);
+	SDL_RenderCopyEx(Game::renderer, objTexture, &srcRect, &destRect, rotationAngle, &imageRotationPoint, SDL_FLIP_NONE);
 }
 
 int CarObject::getX() {
@@ -305,19 +355,6 @@ int CarObject::getH() {
 
 int CarObject::getW() {
 	return width;
-}
-
-void CarObject::checkForCollision() {
-
-	if ((obstacle1->getY() + obstacle1->getH()) >= windowHeight - height) {
-		if ((obstacle1->getX() - width) <= xpos && xpos <= (obstacle1->getX() + obstacle1->getW()))
-			isRunning = false;
-	}
-
-	if ((obstacle2->getY() + obstacle2->getH()) >= windowHeight - height) {
-		if ((obstacle2->getX() - width) <= xpos && xpos <= (obstacle2->getX() + obstacle2->getW()))
-			isRunning = false;
-	}
 }
 
 void CarObject::setRunningStatus(bool carRunning) {
@@ -344,73 +381,22 @@ Uint32 CarObject::getRunningTime() {
 
 //////////////////////////////////
 //								//
-//		ObstacleObject			//
+//		TextureManager			//
 //								//
 //////////////////////////////////
 
-ObstacleObject::ObstacleObject(const char* texturesheet, int h, int w) {
-	objTexture = TextureManager::LoadTexture(texturesheet);
+SDL_Texture* TextureManager::LoadTexture(const char* texture) {
 
-	height = h;
-	width = w;
-	xpos = rand() % (windowWidth - width);
-	ypos = 0;	
+	SDL_Surface* tempSurface = IMG_Load(texture);
+	SDL_Texture* tex = SDL_CreateTextureFromSurface(Game::renderer, tempSurface);
 
-	std::cout << "Obstacle created" << std::endl;
+	SDL_FreeSurface(tempSurface);
+
+	return tex;
 }
 
-ObstacleObject::~ObstacleObject() {
-	std::cout << "Obstacle destroyed" << std::endl;
-}
-
-void ObstacleObject::Update() {
-	ypos += 2;
-
-	srcRect.h = height;
-	srcRect.w = width;
-	srcRect.x = 0;
-	srcRect.y = 0;
-
-	destRect.x = xpos;
-	destRect.y = ypos;
-	destRect.h = srcRect.h;
-	destRect.w = srcRect.w;
-}
-
-void ObstacleObject::Render() {
-	SDL_RenderCopy(Game::renderer, objTexture, &srcRect, &destRect);
-}
-
-void ObstacleObject::setX(int x) {
-	xpos = x;
-}
-
-void ObstacleObject::setY(int y) {
-	ypos = y;
-}
-
-void ObstacleObject::setH(int h) {
-	height = h;
-}
-
-void ObstacleObject::setW(int w) {
-	width = w;
-}
-
-int ObstacleObject::getX() {
-	return xpos;
-}
-
-int ObstacleObject::getY() {
-	return ypos;
-}
-
-int ObstacleObject::getH() {
-	return height;
-}
-
-int ObstacleObject::getW() {
-	return width;
+void TextureManager::Draw(SDL_Texture* tex, SDL_Rect src, SDL_Rect dest) {
+	SDL_RenderCopy(Game::renderer, tex, &src, &dest);
 }
 
 
@@ -420,78 +406,6 @@ int ObstacleObject::getW() {
 //			Functions			//
 //								//
 //////////////////////////////////
-
-int getUpperObstacleX() {
-	int upperObstacleX;
-	if (obstacle1->getY() < obstacle2->getY()) {
-		upperObstacleX = obstacle1->getX();
-	}
-	else {
-		upperObstacleX = obstacle2->getX();
-	}
-
-	return upperObstacleX;
-}
-
-int getUpperObstacleY() {
-	int upperObstacleY;
-	if (obstacle1->getY() < obstacle2->getY()) {
-		upperObstacleY = obstacle1->getY();
-	}
-	else {
-		upperObstacleY = obstacle2->getY();
-	}
-
-	return upperObstacleY;
-}
-
-int getUpperObstacleW() {
-	int upperObstacleW;
-	if (obstacle1->getY() < obstacle2->getY()) {
-		upperObstacleW = obstacle1->getW();
-	}
-	else {
-		upperObstacleW = obstacle2->getW();
-	}
-
-	return upperObstacleW;
-}
-
-int getLowerObstacleX() {
-	int lowerObstacleX;
-	if (obstacle1->getY() > obstacle2->getY()) {
-		lowerObstacleX = obstacle1->getX();
-	}
-	else {
-		lowerObstacleX = obstacle2->getX();
-	}
-
-	return lowerObstacleX;
-}
-
-int getLowerObstacleY() {
-	int lowerObstacleY;
-	if (obstacle1->getY() > obstacle2->getY()) {
-		lowerObstacleY = obstacle1->getY();
-	}
-	else {
-		lowerObstacleY = obstacle2->getY();
-	}
-
-	return lowerObstacleY;
-}
-
-int getLowerObstacleW() {
-	int lowerObstacleW;
-	if (obstacle1->getY() > obstacle2->getY()) {
-		lowerObstacleW = obstacle1->getW();
-	}
-	else {
-		lowerObstacleW = obstacle2->getW();
-	}
-
-	return lowerObstacleW;
-}
 
 void generateRandomArray(double* Array, int size) {
 	for (int i = 0; i < size; i++) {
@@ -511,9 +425,9 @@ void startNewGame() {
 	}
 
 	char fileName[1000];
-	sprintf(fileName, "trainingFiles\\%.3f - [%d][%.4f][%d, %d, %d, %d].txt", 
-		(double)car[bestCarIndex]->getRunningTime()/1000, bestCarIndex, learningRate, (numberOfInputNeurons - BIAS), numberOfHiddenLayers, (numberOfHiddenNeurons - BIAS), numberOfOutputNeurons);
-	
+	sprintf(fileName, "trainingFiles\\%.3f - [%d][%.4f][%d, %d, %d, %d].txt",
+		(double)car[bestCarIndex]->getRunningTime() / 1000, bestCarIndex, learningRate, (numberOfInputNeurons - BIAS), numberOfHiddenLayers, (numberOfHiddenNeurons - BIAS), numberOfOutputNeurons);
+
 	NeuralNetwork_CopyNeuralNetworkToArrays(car[bestCarIndex]->NeuralNetwork, NeuralNetwork_HiddenWeights, NeuralNetwork_OutputWeights);
 	NeuralNetwork_CopyArraysToFile(fileName, numberOfInputNeurons, numberOfHiddenLayers, numberOfHiddenNeurons, numberOfOutputNeurons, NeuralNetwork_HiddenWeights, NeuralNetwork_OutputWeights);
 
@@ -530,8 +444,8 @@ void startNewGame() {
 		int numberOfMutations = ceil(learningRate * (double)(sizeOfNeuralNetwork));
 		std::cout << "Number Of Mutations: \t" << numberOfMutations << "\n";
 	}
-	
-	for (int i = 1; i < (int)(numberOfCars/2); i++) {
+
+	for (int i = 1; i < (int)(numberOfCars / 2); i++) {
 		NeuralNetwork_RandomMutations(car[i]->NeuralNetwork, NeuralNetwork_HiddenWeights, NeuralNetwork_OutputWeights);
 	}
 
@@ -540,26 +454,4 @@ void startNewGame() {
 		generateRandomArray(NeuralNetwork_OutputWeights, sizeOfOutputWeightsArray);
 		NeuralNetwork_CopyArraysToNeuralNetwork(car[i]->NeuralNetwork, NeuralNetwork_HiddenWeights, NeuralNetwork_OutputWeights);
 	}
-
-	obstacle1->setY(windowHeight / 2);
-	obstacle2->setY(0);
-}
-
-//////////////////////////////////
-//								//
-//		TextureManager			//
-//								//
-//////////////////////////////////
-
-SDL_Texture* TextureManager::LoadTexture(const char* texture) {
-
-	SDL_Surface* tempSurface = IMG_Load(texture);
-	SDL_Texture* tex = SDL_CreateTextureFromSurface(Game::renderer, tempSurface);
-	SDL_FreeSurface(tempSurface);
-
-	return tex;
-}
-
-void TextureManager::Draw(SDL_Texture* tex, SDL_Rect src, SDL_Rect dest) {
-	SDL_RenderCopy(Game::renderer, tex, &src, &dest);
 }

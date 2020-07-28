@@ -1,4 +1,28 @@
 ﻿  Using triplet "x64-windows" from "C:\Development\vcpkg-master\vcpkg-master\installed\x64-windows\"
   main.cpp
-C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(530,25): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(224,15): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(225,15): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(286,15): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(287,15): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(291,44): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(292,44): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(294,24): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(295,24): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(297,23): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(298,23): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(300,23): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(301,23): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(303,24): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(304,24): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(307,28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(308,28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(311,29): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(312,29): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(315,27): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(316,27): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(319,28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(320,28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(345,9): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(349,9): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\FSAI\src\main.cpp(444,25): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
   FSAI.vcxproj -> C:\Users\Patrick\Documents\GitHub\AI_Practice\FSAI\x64\Debug\FSAI.exe

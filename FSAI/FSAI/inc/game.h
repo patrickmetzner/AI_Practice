@@ -19,11 +19,9 @@ public:
 	static SDL_Renderer* renderer;
 
 private:
-	int levelCounter = 0;
 	bool isRunning = false;
 	SDL_Window* window;
 };
-
 
 class CarObject
 {
@@ -32,12 +30,13 @@ public:
 	~CarObject();
 
 	void Update();
+	void moveCar();
+	void checkForCollision();
 	void Render();
 	int getX();
 	int getY();
 	int getH();
 	int getW();
-	void checkForCollision();
 	void setRunningStatus(bool carRunning);
 	bool running();
 	void setRunningTime();
@@ -47,64 +46,28 @@ public:
 	NeuralNetwork* NeuralNetwork;
 
 private:
-	int xpos, ypos, height, width;
+	double xpos, ypos;
+	int	height, width;
 	bool isRunning = true;
-	bool isAutonomous = true;
+	bool isAutonomous = false;
 	Uint32 runningTime = 0;
 
 	SDL_Texture* objTexture;
 	SDL_Rect srcRect, destRect;
+	SDL_Point imageRotationPoint, carCenter, left, front, right, rear, frontLeft, frontRight, rearLeft, rearRight;
+	double rotationAngle = 0;
 
 	
 	double NeuralNetwork_InputArray[7];
 	double NeuralNetwork_OutputArray[2];
 };
 
-
-class ObstacleObject
-{
-public:
-	ObstacleObject(const char* texturesheet, int h, int w);
-	~ObstacleObject();
-
-	void Update();
-	void Render();
-	void setX(int x);
-	void setY(int y);
-	void setH(int h);
-	void setW(int w);
-	int getX();
-	int getY();
-	int getH();
-	int getW();
-
-private:
-	int xpos, ypos, height, width; 
-	
-
-	SDL_Texture* objTexture;
-	SDL_Rect srcRect, destRect;
-
-};
-
-int getUpperObstacleX();
-
-int getUpperObstacleY();
-
-int getUpperObstacleW();
-
-int getLowerObstacleX();
-
-int getLowerObstacleY();
-
-int getLowerObstacleW();
-
-void generateRandomArray(double* Array, int size);
-
-void startNewGame();
-
 class TextureManager {
 public:
 	static SDL_Texture* LoadTexture(const char* fileName);
 	static void Draw(SDL_Texture* tex, SDL_Rect src, SDL_Rect dest);
 };
+
+void generateRandomArray(double* Array, int size);
+
+void startNewGame();
